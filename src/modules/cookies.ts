@@ -10,13 +10,13 @@ interface CookiesProps {
 }
 
 export async function createCookies(props: CookiesProps) {
-	(await cookies()).set(props?.name, props?.data, { secure: true });
+	(await cookies()).set(props?.name as string, props?.data, { secure: true });
 }
 
 export async function getCookies(name: CookiesProps["name"]) {
-	return (await cookies()).get(name);
+	return (await cookies()).get(name as string);
 }
 
 export async function removeCookies(name: CookiesProps["name"]) {
-	(await cookies()).delete(name);
+	(await cookies()).delete(name as string);
 }

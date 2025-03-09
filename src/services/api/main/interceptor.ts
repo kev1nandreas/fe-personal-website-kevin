@@ -11,9 +11,19 @@ const api = axios.create({
 	},
 });
 api.interceptors.request.use(async (config) => {
+	// Only set Content-Type if it's not already set and not FormData
+	if (!config.headers['Content-Type'] && !(config.data instanceof FormData)) {
+		config.headers['Content-Type'] = 'application/json';
+	}
+	
+	// Remove Content-Type header if FormData is being sent
+	if (config.data instanceof FormData) {
+		delete config.headers['Content-Type'];
+	}
+
 	if (isServer) {
 		const { cookies } = await import("next/headers");
-		const token = (await cookies()).get(ENV.TOKEN_KEY)?.value;
+		const token = (await cookies()).get(ENV.TOKEN_KEY as string)?.value;
 
 		if (token) {
 			config.headers.Authorization = `Bearer ${token}`;
