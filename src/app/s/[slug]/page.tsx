@@ -20,7 +20,7 @@ export default function Page() {
   });
 
   return (
-    <div className="flex items-center justify-center h-screen text-5xl font-semibold">
+    <div className="flex items-center justify-center h-screen text-3xl md:text-5xl font-semibold">
       {isLoading && !error && <p className="animate-[pulse_1.5s_ease-in-out_infinite]">Loading...</p>}
       {link && <p className="animate-[pulse_1.5s_ease-in-out_infinite]">Redirecting...</p>}
       {error && (
