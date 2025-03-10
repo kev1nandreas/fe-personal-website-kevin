@@ -21,8 +21,8 @@ export default function Page() {
 
   return (
     <div className="flex items-center justify-center h-screen text-5xl font-semibold">
-      {isLoading && !error && <p>Loading...</p>}
-      {link && <p>Redirecting...</p>}
+      {isLoading && !error && <p className="animate-[pulse_1.5s_ease-in-out_infinite]">Loading...</p>}
+      {link && <p className="animate-[pulse_1.5s_ease-in-out_infinite]">Redirecting...</p>}
       {error && (
         <div className="flex items-center flex-col">
           <TbMoodEmpty className="w-20 h-20 my-3" />
