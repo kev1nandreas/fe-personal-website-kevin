@@ -16,10 +16,12 @@ export async function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
 
   if (pathname === "/s") {
-    return NextResponse.redirect(PATH.HOME);
+    return NextResponse.redirect(new URL(PATH.HOME, request.url));
   }
+
+  return NextResponse.next();
 }
 
 export const config = {
-  matcher: ["/", "/s/:slug"],
+  matcher: ["/", "/s/:slug", "/s"],
 };
