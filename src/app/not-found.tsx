@@ -1,7 +1,24 @@
+'use client';
+
+import { useRouter } from "next/navigation";
+import { FaArrowLeft } from "react-icons/fa";
+
 export default function NotFound() {
-    return (
-        <div className="flex items-center justify-center h-screen text-5xl font-semibold">
-        <p>404 | Page Not Found</p>
-        </div>
-    );
+  const router = useRouter();
+
+  return (
+    <div className="flex flex-col items-center justify-center h-screen text-5xl font-semibold gap-4">
+      <p>404 | Page Not Found</p>
+      <p className="text-sm font-medium">
+        It seems like you&apos;re lost. Please check your link and try again.
+      </p>
+      <button
+        className="text-sm font-bold text-blue-500 cursor-pointer border-2 p-2 px-4 rounded-lg hover:bg-blue-500 hover:text-white hover:border-transparent mt-2"
+        onClick={() => router.back()}
+      >
+        <FaArrowLeft className="inline-block w-4 h-4 mr-2" />
+        Previous Page
+      </button>
+    </div>
+  );
 }
