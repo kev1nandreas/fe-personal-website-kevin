@@ -38,9 +38,15 @@ export const Navbar = () => {
   }, [openOthers, openMenu]);
 
   return (
-    <div className="flex fixed top-0 right-0 left-0 justify-end md:justify-center items-center p-3 pt-6 select-none">
+    <div className="flex fixed z-50 top-0 right-0 left-0 justify-end md:justify-center items-center p-3 pt-6 select-none">
       {/* Desktop view menu */}
-      <div className="hidden md:flex relative justify-center items-center gap-6 border-2 border-gray-500 px-10 w-fit rounded-full bg-[#171717]">
+      <div
+        className="hidden md:flex relative justify-center items-center gap-6 border-2 border-gray-500 px-10 w-fit rounded-full"
+        style={{
+          background: "rgba(23, 23, 23, 0.80)",
+          backdropFilter: "blur(8px)",
+        }}
+      >
         {menu.slice(0, split).map((item, index) => (
           <Link
             href={item.link}
@@ -61,7 +67,10 @@ export const Navbar = () => {
         </button>
         {openOthers && (
           <div
-            className="absolute flex flex-col gap-1 top-14 -right-11 p-4 w-fit border-2 border-gray-500 rounded-lg bg-[#171717]"
+            className="absolute flex flex-col gap-1 top-14 -right-11 p-4 w-fit border-2 border-gray-500 rounded-lg backdrop-blur-2xl"
+            style={{
+              background: "rgba(23, 23, 23)",
+            }}
             data-aos="fade"
             ref={dropdownRef}
           >
@@ -99,7 +108,11 @@ export const Navbar = () => {
         </button>
         {openMenu && (
           <div
-            className="absolute flex flex-col gap-1 top-14 right-0 p-4 w-[17rem] border-2 border-gray-500 rounded-lg bg-[#171717]"
+            className="absolute flex flex-col gap-1 top-14 right-0 p-4 w-[17rem] border-2 border-gray-500 rounded-lg"
+            style={{
+              background: "rgba(23, 23, 23, 0.80)",
+              backdropFilter: "blur(8px)",
+            }}
             data-aos="fade"
           >
             {menu.map((item, index) => (
