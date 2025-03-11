@@ -1,17 +1,21 @@
+import Link from "next/link";
 import { ReactNode } from "react";
 
 export const ColorfulButton = ({
   children,
   rounded,
   hoverActive,
+  href,
 }: {
   children: ReactNode;
   rounded: "full" | "large";
   hoverActive: boolean;
+  href?: string;
 }) => {
   return (
-    <button
-      className={`relative inline-flex items-center justify-center p-[2px] cursor-pointer transition-all duration-300 min-w-[8rem] 
+    <Link
+      href={href || "#"}
+      className={`relative inline-flex items-center justify-center p-[2px] cursor-pointer transition-all duration-300 min-w-[8rem] select-none
       ${
         hoverActive &&
         "hover:scale-105 hover:shadow-[0_0_8px_rgba(139,92,246,0.8)]"
@@ -36,12 +40,12 @@ export const ColorfulButton = ({
       ></span>
       <span
         className={`relative px-8 py-2 bg-[#171717] text-white font-medium min-w-[8rem] 
-        transition-all duration-300
+        transition-all duration-300 text-center
         ${hoverActive && "hover:text-yellow-200"}
         ${rounded === "full" ? "rounded-full" : "rounded-lg"}`}
       >
         {children}
       </span>
-    </button>
+    </Link>
   );
 };

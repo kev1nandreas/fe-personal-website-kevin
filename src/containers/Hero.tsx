@@ -34,10 +34,10 @@ export const Hero = () => {
           deletionSpeed={60}
           className="md:text-5xl text-2xl font-semibold"
         />
-        <Typography text={"body1"} className="mt-3">
+        <Typography text={"body"} className="mt-3">
           Let&apos;s get to know more about me.
         </Typography>
-        <ColorfulButton hoverActive={true} rounded="full">Dive In</ColorfulButton>
+        <ColorfulButton href="/#about" hoverActive={true} rounded="full">Dive In</ColorfulButton>
       </div>
     </div>
   );
