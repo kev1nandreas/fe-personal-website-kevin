@@ -1,3 +1,5 @@
+'use client';
+
 import { Button } from "@/components/Button/Button";
 import { Photo } from "@/components/Photo";
 import { Typography } from "@/components/Typography";
@@ -32,7 +34,7 @@ export const About = () => {
         </Typography>
 
         <div className="flex justify-end w-full">
-          <Button className="flex items-center gap-2">
+          <Button className="flex items-center gap-2" onClick={() => window.open("CV_12-3-25.pdf")}>
             <MdDownload className="text-xl"/> Download CV
           </Button>
         </div>
