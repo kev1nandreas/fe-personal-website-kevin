@@ -19,7 +19,7 @@ export const ColorfulButton = ({
       ${rounded === "full" ? "rounded-full" : "rounded-lg"}`}
     >
       <span
-        className={`absolute inset-0 bg-conic/decreasing from-violet-700 via-lime-300 to-violet-700 min-w-[8rem] 
+        className={`absolute inset-0 bg-red-500 min-w-[8rem] 
         transition-all duration-300 ease-in-out
         ${hoverActive && "group-hover:blur-sm group-hover:opacity-80"}
         
