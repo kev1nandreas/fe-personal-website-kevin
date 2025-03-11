@@ -14,33 +14,33 @@ export const Navbar = () => {
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    AOS.init({ duration: 2000 });
+    AOS.init({ duration: 1000 });
 
     const handleClickOutside = (event: MouseEvent) => {
       if (
         dropdownRef.current &&
         !dropdownRef.current.contains(event.target as Node)
       ) {
-        setOpenOthers(false);
-        setOpenMenu(false);
+        setTimeout(() => {
+          setOpenOthers(false);
+          setOpenMenu(false);
+        }, 200);
       }
     };
 
     if (openOthers || openMenu) {
       document.addEventListener("mousedown", handleClickOutside);
-    } else {
-      document.removeEventListener("mousedown", handleClickOutside);
     }
 
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  });
+  }, [openOthers, openMenu]);
 
   return (
-    <div className="flex justify-end md:justify-center items-center w-full p-3 pt-6 select-none">
+    <div className="flex fixed top-0 right-0 left-0 justify-end md:justify-center items-center p-3 pt-6 select-none">
       {/* Desktop view menu */}
-      <div className="hidden md:flex relative justify-center items-center gap-6 border-2 border-gray-500 px-10 w-fit rounded-full">
+      <div className="hidden md:flex relative justify-center items-center gap-6 border-2 border-gray-500 px-10 w-fit rounded-full bg-[#171717]">
         {menu.slice(0, split).map((item, index) => (
           <Link
             href={item.link}
@@ -61,9 +61,9 @@ export const Navbar = () => {
         </button>
         {openOthers && (
           <div
-            ref={dropdownRef}
-            className="absolute flex flex-col gap-1 top-14 -right-11 p-4 w-fit border-2 border-gray-500 rounded-lg"
+            className="absolute flex flex-col gap-1 top-14 -right-11 p-4 w-fit border-2 border-gray-500 rounded-lg bg-[#171717]"
             data-aos="fade"
+            ref={dropdownRef}
           >
             {menu.slice(split).map((item, index) => (
               <Link
@@ -84,7 +84,10 @@ export const Navbar = () => {
       </div>
 
       {/* Mobile view menu */}
-      <div className="flex md:hidden relative justify-center items-center gap-6 border-2 border-gray-500 w-fit rounded-full">
+      <div
+        className="flex md:hidden relative justify-center items-center gap-6 border-2 border-gray-500 w-fit rounded-full bg-[#171717]"
+        ref={dropdownRef}
+      >
         <button
           className={`hover:opacity-100 transition-all duration-200 cursor-pointer p-3 px-5 flex gap-1 ${
             openMenu ? "opacity-100" : "opacity-70"
@@ -96,8 +99,7 @@ export const Navbar = () => {
         </button>
         {openMenu && (
           <div
-            ref={dropdownRef}
-            className="absolute flex flex-col gap-1 top-14 right-0 p-4 w-[17rem] border-2 border-gray-500 rounded-lg"
+            className="absolute flex flex-col gap-1 top-14 right-0 p-4 w-[17rem] border-2 border-gray-500 rounded-lg bg-[#171717]"
             data-aos="fade"
           >
             {menu.map((item, index) => (
