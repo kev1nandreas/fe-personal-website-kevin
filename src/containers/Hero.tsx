@@ -9,7 +9,16 @@ export const Hero = () => {
   return (
     <div className="flex items-center justify-center h-screen gap-5">
       <div className="hidden md:flex items-center justify-center">
-        <Image src={"/KevinHeroCrop.png"} alt={"Kevin Hero Pict"} width={200} height={200} className="w-[20rem]"/>
+        <Image
+          src={"/KevinHeroCrop.png"}
+          alt={"Kevin Hero Pict"}
+          width={200}
+          height={200}
+          draggable={false}
+          priority={true}
+          loading="eager"
+          className="w-[20rem] pointer-events-none select-none"
+        />
       </div>
       <div className="flex flex-col gap-3 w-[48rem] max-w-screen p-3 items-center md:items-start">
         <Typography text={"h4"}>
@@ -37,7 +46,9 @@ export const Hero = () => {
         <Typography text={"body"} className="mt-3">
           Let&apos;s get to know more about me.
         </Typography>
-        <ColorfulButton href="/#about" hoverActive={true} rounded="full">Dive In</ColorfulButton>
+        <ColorfulButton href="/#about" hoverActive={true} rounded="full">
+          Dive In
+        </ColorfulButton>
       </div>
     </div>
   );

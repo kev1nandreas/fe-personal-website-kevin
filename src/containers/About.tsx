@@ -33,7 +33,7 @@ export const About = () => {
           abilities.
         </Typography>
 
-        <div className="flex justify-end w-full">
+        <div className="flex justify-center md:justify-end w-full">
           <Button className="flex items-center gap-2" onClick={() => window.open("CV_12-3-25.pdf")}>
             <MdDownload className="text-xl"/> Download CV
           </Button>
