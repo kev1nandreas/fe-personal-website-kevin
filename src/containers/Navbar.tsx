@@ -41,7 +41,7 @@ export const Navbar = () => {
     <div className="flex fixed z-50 top-0 right-0 left-0 justify-end md:justify-center items-center p-3 pt-6 select-none">
       {/* Desktop view menu */}
       <div
-        className="hidden md:flex relative justify-center items-center gap-6 border-2 border-gray-500 px-10 w-fit rounded-full"
+        className={`hidden md:flex relative justify-center items-center gap-6 border-2 border-gray-500 px-10 w-fit rounded-full transition-all duration-200`}
         style={{
           background: "rgba(23, 23, 23, 0.80)",
           backdropFilter: "blur(8px)",
@@ -58,7 +58,7 @@ export const Navbar = () => {
         ))}
         |
         <button
-          className={`hover:opacity-100 transition-all duration-200 cursor-pointer ${
+          className={`hover:opacity-100 transition-all duration-200 cursor-pointer p-3 ${
             openOthers ? "opacity-100" : "opacity-70"
           }`}
           onClick={() => setOpenOthers(!openOthers)}

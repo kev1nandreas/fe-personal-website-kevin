@@ -31,7 +31,8 @@ export const Photo = ({ className }: { className?: string }) => {
           alt={"Kevin Beach"}
           width={200}
           height={200}
-          className="w-[18rem]"
+          draggable={false}
+          className="w-[18rem] pointer-events-none select-none"
         />
       </div>
       <div
@@ -44,7 +45,8 @@ export const Photo = ({ className }: { className?: string }) => {
           alt={"Kevin Bamboo"}
           width={200}
           height={200}
-          className="w-[18rem]"
+          draggable={false}
+          className="w-[18rem] pointer-events-none select-none"
         />
       </div>
       <div

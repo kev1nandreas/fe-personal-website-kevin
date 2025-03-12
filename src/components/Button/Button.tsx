@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 import { cva, type VariantProps } from "class-variance-authority";
 import React from "react";
 
-const ButtonVariant = cva("p-2 px-7 rounded-lg cursor-pointer transition-all duration-200 font-semibold", {
+const ButtonVariant = cva("p-2 px-7 rounded-lg cursor-pointer transition-all duration-200 font-semibold select-none", {
   variants: {
     button: {
       primary_fill: "bg-yellow-500 text-white hover:bg-yellow-700",
