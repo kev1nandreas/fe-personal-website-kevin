@@ -12,6 +12,7 @@ const TypographyVariant = cva("", {
       h4: "md:text-3xl font-semibold text-lg",
       h5: "md:text-2xl font-semibold text-xl",
       h6: "md:text-xl font-semibold text-lg",
+      h7: "md:text-lg font-semibold text-md",
     },
   },
   defaultVariants: {

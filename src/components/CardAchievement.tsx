@@ -50,7 +50,7 @@ export const CardAchievement = ({
       </Typography>
       <Typography
         className={`text-justify transition-all duration-1000 ease-in-out overflow-hidden ${
-          showDesc ? "h-fit opacity-60 mt-2" : "h-0 opacity-0"
+          showDesc ? "h-fit opacity-80 mt-2" : "h-0 opacity-0"
         }`}
       >
         {description}
