@@ -37,7 +37,7 @@ export default function Page() {
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           >
-            <div className="hover:-translate-y-1 cursor-pointer transition-all duration-300 p-4">
+            <div className="hover:-translate-y-1 rounded-full bg-[#171717] p-1 cursor-pointer transition-all duration-300">
               <CiCircleChevUp className="text-4xl" />
             </div>
           </button>
