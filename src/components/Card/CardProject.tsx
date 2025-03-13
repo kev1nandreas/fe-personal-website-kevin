@@ -55,7 +55,7 @@ export const CardProject = ({
 
       <div className="max-w-[40rem] flex flex-col gap-4">
         <div className="flex items-center justify-between">
-          <Typography text={"h4"}>{title}</Typography>
+          <Typography text={"h4"} className="text-2xl">{title}</Typography>
 
           {/* Work In Progress */}
           {finished === false && (
