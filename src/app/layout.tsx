@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Kevin Andreas",
+  title: "Under Development | Kevin Andreas",
   description: "Personal Website | Kevin Andreas",
 };
 
