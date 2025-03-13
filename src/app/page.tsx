@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-expressions */
 'use client';
 
 import { About } from "@/containers/About";
@@ -16,7 +17,6 @@ export default function Page() {
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
-      // eslint-disable-next-line @typescript-eslint/no-unused-expressions
       window.scrollY > 400 ? setIsScrolled(true) : setIsScrolled(false);
     });
   }, []);

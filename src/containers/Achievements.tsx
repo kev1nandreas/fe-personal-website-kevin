@@ -6,10 +6,13 @@ import { achievements } from "@/lib/data";
 import Image from "next/image";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 export const Achievements = () => {
-  AOS.init({
-    duration: 1000,
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+    });
   });
 
   return (

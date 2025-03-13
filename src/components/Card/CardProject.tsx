@@ -8,6 +8,7 @@ import { Button } from "../Button/Button";
 import { IconDescription } from "../IconDescription";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 interface CardProjectProps {
   index: number;
@@ -30,8 +31,10 @@ export const CardProject = ({
   image,
   finished,
 }: CardProjectProps) => {
-  AOS.init({
-    duration: 1000,
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+    });
   });
 
   return (

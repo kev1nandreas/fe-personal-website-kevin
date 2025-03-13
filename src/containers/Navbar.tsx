@@ -19,7 +19,13 @@ export const Navbar = () => {
   const navbarRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    AOS.init({ duration: 1000 });
+    AOS.init({
+      duration: 1000,
+    });
+  });
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
 
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -43,16 +49,18 @@ export const Navbar = () => {
   }, [openOthers, openMenu]);
 
   useEffect(() => {
+    if (typeof window === "undefined") return;
+
     const handleScroll = () => {
-      window.scrollY > scroll && !openOthers && setShowNavbar(false);
-      window.scrollY < scroll && setShowNavbar(true);
-      window.scrollY >= 0 && setHash("/#home");
-      window.scrollY >= 490 && setHash("/#about");
-      window.scrollY >= 621 && setHash("/#education");
-      window.scrollY >= 1300 && setHash("/#achievements");
-      window.scrollY >= 2268 && setHash("/#experiences");
-      window.scrollY >= 3450 && setHash("/#projects");
-      window.scrollY >= 4742 && setHash("/#contact");
+      setShowNavbar(window.scrollY < scroll || !openOthers);
+
+      if (window.scrollY >= 4742) setHash("/#contact");
+      else if (window.scrollY >= 3450) setHash("/#projects");
+      else if (window.scrollY >= 2268) setHash("/#experiences");
+      else if (window.scrollY >= 1300) setHash("/#achievements");
+      else if (window.scrollY >= 621) setHash("/#education");
+      else if (window.scrollY >= 490) setHash("/#about");
+      else setHash("/#home");
 
       setScroll(window.scrollY);
     };
@@ -62,23 +70,29 @@ export const Navbar = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [window.scrollY]);
+  }, [scroll, openOthers]);
 
   useEffect(() => {
+    if (typeof window === "undefined") return;
+
     if (navbarRef.current && !openOthers) {
       navbarRef.current.addEventListener("mouseenter", () => {
         setShowNavbar(true);
       });
     }
-  });
+  }, [openOthers]);
 
   return (
-    <div ref={navbarRef} className="flex fixed z-50 top-0 right-0 left-0 justify-end md:justify-center items-center p-3 pt-6 select-none">
+    <div
+      ref={navbarRef}
+      className="flex fixed z-50 top-0 right-0 left-0 justify-end md:justify-center items-center p-3 pt-6 select-none"
+    >
       {/* Desktop view menu */}
       <div
         className={`hidden md:flex relative justify-center items-center gap-6 border-2 border-gray-500 px-10 w-fit rounded-full transition-all duration-800 ${
-          showNavbar ? "opacity-100 max-w-[50rem]" : "opacity-0 max-w-0 overflow-hidden"
+          showNavbar
+            ? "opacity-100 max-w-[50rem]"
+            : "opacity-0 max-w-0 overflow-hidden"
         }`}
         style={{
           background: "rgba(23, 23, 23, 0.80)",

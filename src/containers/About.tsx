@@ -7,12 +7,15 @@ import { MdDownload } from "react-icons/md";
 import { Dancing_Script } from "next/font/google";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 const dancingScript = Dancing_Script({ subsets: ["latin"], weight: "400" });
 
 export const About = () => {
-  AOS.init({
-    duration: 1000,
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+    });
   });
 
   return (
@@ -56,7 +59,10 @@ export const About = () => {
           abilities.
         </Typography>
 
-        <div data-aos={"fade-up"} className="flex justify-center md:justify-end w-full">
+        <div
+          data-aos={"fade-up"}
+          className="flex justify-center md:justify-end w-full"
+        >
           <Button
             className="flex items-center gap-2"
             onClick={() => window.open("CV_12-3-25.pdf")}

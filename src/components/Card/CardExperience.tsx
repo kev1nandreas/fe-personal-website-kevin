@@ -1,6 +1,7 @@
 import { Typography } from "../Typography";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 interface CardExperienceProps {
   date: string;
@@ -15,8 +16,10 @@ export const CardExperience = ({
   company,
   description,
 }: CardExperienceProps) => {
-  AOS.init({
-    duration: 1000,
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+    });
   });
 
   return (

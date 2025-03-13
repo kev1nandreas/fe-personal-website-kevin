@@ -5,12 +5,14 @@ import { Typography } from "@/components/Typography";
 import { education } from "@/lib/data";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 export const Educations = () => {
-  AOS.init({
-    duration: 1000,
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+    });
   });
-
   return (
     <div
       id="education"

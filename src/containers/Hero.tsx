@@ -6,17 +6,23 @@ import { TypeAnimation } from "react-type-animation";
 import Image from "next/image";
 import { IconDescription } from "@/components/IconDescription";
 import Link from "next/link";
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 export const Hero = () => {
-  AOS.init({
-    duration: 1000,
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+    });
   });
 
   return (
     <div id="home" className="flex items-center justify-center h-screen gap-5">
-      <div data-aos={"fade-right"} className="hidden md:flex items-center justify-center">
+      <div
+        data-aos={"fade-right"}
+        className="hidden md:flex items-center justify-center"
+      >
         <Image
           src={"/KevinHeroCrop.png"}
           alt={"Kevin Hero Pict"}
@@ -28,7 +34,10 @@ export const Hero = () => {
           className="w-[20rem] pointer-events-none select-none"
         />
       </div>
-      <div data-aos={"fade-left"} className="flex flex-col gap-3 w-[48rem] max-w-screen p-3 items-center md:items-start">
+      <div
+        data-aos={"fade-left"}
+        className="flex flex-col gap-3 w-[48rem] max-w-screen p-3 items-center md:items-start"
+      >
         <Typography text={"h4"}>
           Hello, I am{" "}
           <span className="bg-gradient-to-r from-yellow-500 to-yellow-500 via-yellow-200 via-50% text-transparent bg-clip-text">

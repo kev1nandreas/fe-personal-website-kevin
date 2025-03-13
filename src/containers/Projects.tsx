@@ -4,12 +4,15 @@ import { CardProject } from "@/components/Card/CardProject";
 import { Typography } from "@/components/Typography";
 import { projects } from "@/lib/data";
 import Image from "next/image";
-import Aos from "aos";
+import AOS from "aos";
 import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 export const Projects = () => {
-  Aos.init({
-    duration: 1000,
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+    });
   });
 
   return (
