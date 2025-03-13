@@ -4,13 +4,16 @@ import { Button } from "@/components/Button/Button";
 import { Photo } from "@/components/Photo";
 import { Typography } from "@/components/Typography";
 import { MdDownload } from "react-icons/md";
+import { Dancing_Script } from "next/font/google";
+
+const dancingScript = Dancing_Script({ subsets: ["latin"], weight: "400" });
 
 export const About = () => {
   return (
     <div id="about" className="gap-10 mt-8 flex flex-col items-center justify-center md:flex-row md:gap-15">
       <div className="flex flex-col gap-7 justify-center items-center md:items-start p-2 max-w-[35rem]">
         <Typography text={"h1"} className="text-center md:text-left">
-          About <span className="font-dancing-script">Me</span>
+          About <span className={`${dancingScript.className}`}>Me</span>
         </Typography>
 
         <Photo className="md:hidden flex ml-6 mt-12" />
