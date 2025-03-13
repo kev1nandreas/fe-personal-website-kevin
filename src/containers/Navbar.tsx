@@ -52,7 +52,8 @@ export const Navbar = () => {
     if (typeof window === "undefined") return;
 
     const handleScroll = () => {
-      setShowNavbar(window.scrollY < scroll || !openOthers);
+      if (window.scrollY >= scroll) setShowNavbar(false);
+      else setShowNavbar(true);
 
       if (window.scrollY >= 4742) setHash("/#contact");
       else if (window.scrollY >= 3450) setHash("/#projects");
