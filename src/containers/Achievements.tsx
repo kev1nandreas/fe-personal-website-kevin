@@ -1,4 +1,4 @@
-import { CardAchievement } from "@/components/CardAchievement";
+import { CardAchievement } from "@/components/Card/CardAchievement";
 import { Typography } from "@/components/Typography";
 import { achievements } from "@/lib/data";
 import Image from "next/image";
@@ -21,6 +21,7 @@ export const Achievements = () => {
             width={1000}
             height={1000}
             draggable={false}
+            priority={true}
             className="absolute pointer-events-none select-none w-[23rem] h-[8rem] lg:w-[35rem] -top-10 lg:-top-9"
           ></Image>
           Achievements

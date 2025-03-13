@@ -1,4 +1,4 @@
-import { CardExperience } from "@/components/CardExperience";
+import { CardExperience } from "@/components/Card/CardExperience";
 import { Typography } from "@/components/Typography";
 import { experiences } from "@/lib/data";
 import Image from "next/image";
@@ -19,6 +19,7 @@ export const Experiences = () => {
           width={800}
           height={800}
           draggable={false}
+          priority={true}
           className="pointer-events-none select-none absolute bottom-0 left-0 right-0"
         ></Image>
         Experiences

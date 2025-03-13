@@ -17,7 +17,7 @@ export const About = () => {
 
         <Typography
           text={"body"}
-          className="md:text-justify text-center w-full md:mr-9"
+          className="md:text-justify text-center w-full md:mr-9 opacity-80"
         >
           I am a second-year student with a passion for challenges and
           continuous learning. I am actively improving my skills in informatics,

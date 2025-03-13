@@ -148,3 +148,34 @@ export const experiences = [
     ],
   },
 ];
+
+export const projects = [
+  {
+    title: "Personal Landing Page",
+    description:
+      "This is a personal landing page I built using Next.js and Tailwind CSS to showcase my profiile and portfolio. It features highly reusable components, is responsive on all devices, and includes interactive elements for a better user experience. This is also my first fully self-designed website, created from scratch with inspiration from various references.",
+    techStack: ["next", "tailwind"],
+    image: "/projects/landingpage.png",
+    link: "https://kevin-andreas.com/",
+    github: "https://github.com/kev1nandreas/fe-personal-website-kevin",
+    finished: true,
+  },
+  {
+    title: "Link Shortener",
+    description:
+      "Managing long URLs can be inconvenient, making sharing and accessibility more challenging. This web application offers a simple and efficient solution by shortening links for easier use. As my first full-stack project, developed with Laravel and Next.js, it demonstrates my ability to build a seamless and user-friendly experience. The shortened links are redirected using my main domain, kevin-andreas.com, ensuring a professional and reliable service.",
+    techStack: ["next", "laravel", "tailwind"],
+    image: "/projects/linkshortener.png",
+    link: "https://short.kevin-andreas.com/",
+    finished: false,
+  },
+  {
+    title: "BEM FTK Website",
+    description:
+      "My team and I developed the official website for BEM FTK to provide a seamless platform for information and engagement. As the Front-End Developer, I focused on ensuring a well-designed, user-friendly interface while maintaining smooth integration with the backend. Built with Next.js, the website delivers high performance, responsiveness, and an optimized user experience.",
+    techStack: ["next", "tailwind"],
+    image: "/projects/bemftk.png",
+    link: "https://bemftk.com/",
+    finished: true,
+  }
+]

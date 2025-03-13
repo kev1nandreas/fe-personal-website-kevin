@@ -1,4 +1,4 @@
-import { CardEducation } from "@/components/CardEducation";
+import { CardEducation } from "@/components/Card/CardEducation";
 import { Typography } from "@/components/Typography";
 import { education } from "@/lib/data";
 

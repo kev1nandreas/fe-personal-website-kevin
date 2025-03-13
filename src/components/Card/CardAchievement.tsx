@@ -2,7 +2,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Typography } from "./Typography";
+import { Typography } from "../Typography";
 
 interface CardAchievementProps {
   name: string;
@@ -50,7 +50,7 @@ export const CardAchievement = ({
       </Typography>
       <Typography
         className={`text-justify transition-all duration-1000 ease-in-out overflow-hidden ${
-          showDesc ? "h-fit opacity-80 mt-2" : "h-0 opacity-0"
+          showDesc ? "max-h-[10rem] opacity-80 mt-2" : "max-h-0 opacity-0"
         }`}
       >
         {description}

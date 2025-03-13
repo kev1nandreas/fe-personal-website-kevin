@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Typography } from "./Typography";
+import { Typography } from "../Typography";
 import Image from "next/image";
 
 type CardEducationProps = {
