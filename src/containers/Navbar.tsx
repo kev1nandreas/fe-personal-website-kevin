@@ -151,8 +151,8 @@ export const Navbar = () => {
 
       {/* Mobile view menu */}
       <div
-        className={`flex md:hidden overflow-hidden relative justify-center items-center gap-6 border-2 border-gray-500 w-fit rounded-full bg-[#171717] transition-all duration-800 ${
-          showNavbar ? "opacity-100 max-w-[50rem]" : "opacity-0 max-w-0"
+        className={`flex md:hidden relative justify-center items-center gap-6 border-2 border-gray-500 w-fit rounded-full bg-[#171717] transition-all duration-800 ${
+          showNavbar ? "opacity-100 max-w-[50rem]" : "opacity-0 max-w-0 overflow-hidden"
         }`}
         ref={dropdownRef}
       >
