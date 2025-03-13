@@ -4,16 +4,23 @@ import { CardProject } from "@/components/Card/CardProject";
 import { Typography } from "@/components/Typography";
 import { projects } from "@/lib/data";
 import Image from "next/image";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 export const Projects = () => {
+  Aos.init({
+    duration: 1000,
+  });
+
   return (
     <div
       id="projects"
       className="flex flex-col items-center justify-center mt-40"
     >
       <Typography
+        data-aos={"fade-up"}
         text={"h1"}
-        className="text-center lg:text-center relative w-[15rem] h-[6rem] lg:h-[7rem] lg:w-[23rem] mb-20"
+        className="text-center lg:text-center relative w-[15rem] h-[6rem] lg:h-[7rem] lg:w-[23rem] mb-20 bg-gradient-to-r from-yellow-500 to-yellow-500 via-yellow-300 text-transparent bg-clip-text hover:scale-105 !transition-all !duration-800 !ease-in-out"
       >
         <Image
           src={"/assets/rectangle/hw-rectangle1.png"}

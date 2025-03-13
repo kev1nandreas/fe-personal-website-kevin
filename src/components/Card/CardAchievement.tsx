@@ -3,6 +3,8 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Typography } from "../Typography";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 interface CardAchievementProps {
   name: string;
@@ -31,8 +33,13 @@ export const CardAchievement = ({
     }
   });
 
+  AOS.init({
+    duration: 1000,
+  });
+
   return (
     <div
+      data-aos={"zoom-in"}
       ref={divRef}
       className="flex flex-col p-4 rounded-xl border-2 max-w-[40rem] gap-2"
       style={{ borderColor: "rgba(240, 240, 240, 0.1)" }}

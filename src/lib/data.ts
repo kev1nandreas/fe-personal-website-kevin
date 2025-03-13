@@ -9,7 +9,7 @@ import { TiContacts } from "react-icons/ti";
 export const menu = [
   {
     name: "Home",
-    link: "/",
+    link: "/#home",
     description: "Back to the home page",
     icon: GoHome,
   },
@@ -20,13 +20,13 @@ export const menu = [
     icon: CgProfile,
   },
   {
-    name: "Education",
+    name: "Educations",
     link: "/#education",
     description: "My educational background",
     icon: FaSchool,
   },
   {
-    name: "Achievemets",
+    name: "Achievements",
     link: "/#achievements",
     description: "What I have achieved",
     icon: LuTrophy,
@@ -178,4 +178,23 @@ export const projects = [
     link: "https://bemftk.com/",
     finished: true,
   }
+]
+
+export const contacts = [
+  {
+    name: "Email",
+    value: "mailto:kevin.andreascn@gmail.com"
+  },
+  {
+    name: "LinkedIn",
+    value: "https://www.linkedin.com/in/kevinandreas/"
+  },
+  {
+    name: "GitHub",
+    value: "https://github.com/kev1nandreas"
+  },
+  {
+    name: "Instagram",
+    value: "https://www.instagram.com/kev1nandreas/"
+  },
 ]

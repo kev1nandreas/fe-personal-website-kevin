@@ -1,4 +1,6 @@
 import { Typography } from "../Typography";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 interface CardExperienceProps {
   date: string;
@@ -13,8 +15,12 @@ export const CardExperience = ({
   company,
   description,
 }: CardExperienceProps) => {
+  AOS.init({
+    duration: 1000,
+  });
+
   return (
-    <div className="flex flex-col lg:flex-row gap-2">
+    <div data-aos={"fade-up"} className="flex flex-col lg:flex-row gap-2">
       <Typography text={"h7"} className="opacity-50 w-[20rem]">
         {date}
       </Typography>

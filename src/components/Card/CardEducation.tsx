@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { Typography } from "../Typography";
 import Image from "next/image";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 type CardEducationProps = {
   title: string;
@@ -19,13 +21,18 @@ export const CardEducation = ({
   period,
   link,
 }: CardEducationProps) => {
+  AOS.init({
+    duration: 1000,
+  });
+  
   return (
     <div
-      className="flex flex-1 flex-col max-w-[37rem] border-2 rounded-2xl p-5 hover:-translate-y-2 hover:shadow-lg hover:shadow-yellow-500 transition-all duration-300 ease-in-out"
+      data-aos={"zoom-in"}
+      className="flex flex-1 flex-col max-w-[37rem] border-2 rounded-2xl p-5 hover:-translate-y-2 hover:shadow-lg hover:shadow-yellow-500 !transition-all !duration-800 !ease-in-out"
       style={{ borderColor: "rgba(240, 240, 240, 0.1)" }}
     >
-      <Typography text={"h3"}>{period}</Typography>
-      <Typography text={"h5"}>{major}</Typography>
+      <Typography text={"h3"} className="bg-gradient-to-r from-slate-500 to-slate-500 via-slate-400 text-transparent bg-clip-text w-fit">{period}</Typography>
+      <Typography text={"h5"} className="opacity-80">{major}</Typography>
       <Link
         href={link}
         target="_blank"

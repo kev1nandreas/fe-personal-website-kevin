@@ -1,31 +1,40 @@
+'use client';
+
 import { SiNextdotjs } from "react-icons/si";
 import { RiTailwindCssFill } from "react-icons/ri";
 import { FaGithub } from "react-icons/fa";
 import { FaLaravel } from "react-icons/fa";
 import { FaReact } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
+import { IoMdMail } from "react-icons/io";
 import { Typography } from "./Typography";
 import { useEffect, useRef, useState } from "react";
 import { IconType } from "react-icons";
 
-interface TechStackProps {
+interface IconDescriptionProps {
   name: string;
   size: string;
 }
 
-const techStackMap: Record<string, {icon: IconType, desc: string}> = {
+const iconMap: Record<string, {icon: IconType, desc: string}> = {
     "next" : {icon: SiNextdotjs, desc: "Next Js"},
     "tailwind" : {icon: RiTailwindCssFill, desc: "Tailwind CSS"},
-    "github" : {icon: FaGithub, desc: "Github Repository"},
+    "github-r" : {icon: FaGithub, desc: "Github Repository"},
+    "github" : {icon: FaGithub, desc: "Github"},
     "laravel" : {icon: FaLaravel, desc: "Laravel"},
-    "react" : {icon: FaReact, desc: "React Js"}
+    "react" : {icon: FaReact, desc: "React Js"},
+    "instagram" : {icon: FaInstagram, desc: "Instagram"},
+    "linkedin" : {icon: FaLinkedin, desc: "Linkedin"},
+    "mail" : {icon: IoMdMail, desc: "Email"}
 }
 
-export const TechStack = (
-    {name, size}: TechStackProps
+export const IconDescription = (
+    {name, size}: IconDescriptionProps
 ) => {
   const ref = useRef<HTMLDivElement>(null);
   const [showDesc, setShowDesc] = useState(false);
-  const asset = techStackMap[name];
+  const asset = iconMap[name];
 
   useEffect(() => {
     if (ref.current) {

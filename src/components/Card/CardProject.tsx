@@ -5,7 +5,9 @@ import { FaFireAlt } from "react-icons/fa";
 import { IoIosConstruct } from "react-icons/io";
 import Link from "next/link";
 import { Button } from "../Button/Button";
-import { TechStack } from "../TechStack";
+import { IconDescription } from "../IconDescription";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 interface CardProjectProps {
   index: number;
@@ -28,8 +30,13 @@ export const CardProject = ({
   image,
   finished,
 }: CardProjectProps) => {
+  AOS.init({
+    duration: 1000,
+  });
+
   return (
     <div
+      data-aos={"fade-up"}
       className="flex flex-col justify-center items-center md:flex-row gap-15 p-5 rounded-2xl relative overflow-hidden"
       style={{ borderColor: "rgba(255, 255, 255, 0.05)", borderWidth: 1 }}
     >
@@ -55,7 +62,9 @@ export const CardProject = ({
 
       <div className="max-w-[40rem] flex flex-col gap-4">
         <div className="flex items-center justify-between">
-          <Typography text={"h4"} className="text-2xl">{title}</Typography>
+          <Typography text={"h4"} className="text-2xl">
+            {title}
+          </Typography>
 
           {/* Work In Progress */}
           {finished === false && (
@@ -72,13 +81,17 @@ export const CardProject = ({
         <div className="flex gap-2 items-center my-3">
           <Typography className="text-sm mr-3">Tech Stack: </Typography>
           {techStack.map((tech, index) => (
-            <TechStack key={index} name={tech} size={"2xl"} />
+            <IconDescription key={index} name={tech} size={"2xl"} />
           ))}
         </div>
-        <div className={`flex items-center ${github ? "justify-between" : "justify-end"}`}>
+        <div
+          className={`flex items-center ${
+            github ? "justify-between" : "justify-end"
+          }`}
+        >
           {github && (
             <Link href={github} target="_blank">
-              <TechStack name={"github"} size={"lg"} />
+              <IconDescription name={"github-r"} size={"lg"} />
             </Link>
           )}
           <Button

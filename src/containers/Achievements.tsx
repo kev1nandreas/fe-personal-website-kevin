@@ -1,9 +1,17 @@
+"use client";
+
 import { CardAchievement } from "@/components/Card/CardAchievement";
 import { Typography } from "@/components/Typography";
 import { achievements } from "@/lib/data";
 import Image from "next/image";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export const Achievements = () => {
+  AOS.init({
+    duration: 1000,
+  });
+
   return (
     <div
       id="achievements"
@@ -12,8 +20,9 @@ export const Achievements = () => {
       {/* Left Container */}
       <div className="flex flex-col items-center max-w-[30rem] lg:mt-10">
         <Typography
+          data-aos={"fade-up"}
           text={"h1"}
-          className="text-center lg:text-center relative w-[23rem] h-[8rem] lg:w-[35rem]"
+          className="text-center lg:text-center relative w-[23rem] h-[8rem] lg:w-[35rem] bg-gradient-to-r from-yellow-500 to-yellow-500 via-yellow-300 text-transparent bg-clip-text hover:scale-105 !transition-all !duration-800 !ease-in-out"
         >
           <Image
             src={"/assets/circle/hw-circle3.png"}
@@ -22,11 +31,12 @@ export const Achievements = () => {
             height={1000}
             draggable={false}
             priority={true}
-            className="absolute pointer-events-none select-none w-[23rem] h-[8rem] lg:w-[35rem] -top-10 lg:-top-9"
+            className="absolute pointer-events-none select-none w-[23rem] h-[8rem] lg:w-[35rem] -top-10 lg:-top-9 "
           ></Image>
           Achievements
         </Typography>
         <Typography
+          data-aos={"fade-up"}
           text={"body"}
           className="opacity-70 -mt-5 lg:text-left text-center"
         >

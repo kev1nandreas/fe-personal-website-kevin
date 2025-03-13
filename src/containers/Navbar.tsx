@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-expressions */
 "use client";
 
 import Link from "next/link";
@@ -11,7 +12,11 @@ export const Navbar = () => {
   const split = 4;
   const [openOthers, setOpenOthers] = useState(false);
   const [openMenu, setOpenMenu] = useState(false);
+  const [showNavbar, setShowNavbar] = useState(true);
+  const [scroll, setScroll] = useState(0);
+  const [hash, setHash] = useState("/#home");
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const navbarRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     AOS.init({ duration: 1000 });
@@ -37,11 +42,44 @@ export const Navbar = () => {
     };
   }, [openOthers, openMenu]);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      window.scrollY > scroll && !openOthers && setShowNavbar(false);
+      window.scrollY < scroll && setShowNavbar(true);
+      window.scrollY >= 0 && setHash("/#home");
+      window.scrollY >= 490 && setHash("/#about");
+      window.scrollY >= 621 && setHash("/#education");
+      window.scrollY >= 1300 && setHash("/#achievements");
+      window.scrollY >= 2268 && setHash("/#experiences");
+      window.scrollY >= 3450 && setHash("/#projects");
+      window.scrollY >= 4742 && setHash("/#contact");
+
+      setScroll(window.scrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [window.scrollY]);
+
+  useEffect(() => {
+    if (navbarRef.current && !openOthers) {
+      navbarRef.current.addEventListener("mouseenter", () => {
+        setShowNavbar(true);
+      });
+    }
+  });
+
   return (
-    <div className="flex fixed z-50 top-0 right-0 left-0 justify-end md:justify-center items-center p-3 pt-6 select-none">
+    <div ref={navbarRef} className="flex fixed z-50 top-0 right-0 left-0 justify-end md:justify-center items-center p-3 pt-6 select-none">
       {/* Desktop view menu */}
       <div
-        className={`hidden md:flex relative justify-center items-center gap-6 border-2 border-gray-500 px-10 w-fit rounded-full transition-all duration-200`}
+        className={`hidden md:flex relative justify-center items-center gap-6 border-2 border-gray-500 px-10 w-fit rounded-full transition-all duration-800 ${
+          showNavbar ? "opacity-100 max-w-[50rem]" : "opacity-0 max-w-0 overflow-hidden"
+        }`}
         style={{
           background: "rgba(23, 23, 23, 0.80)",
           backdropFilter: "blur(8px)",
@@ -51,7 +89,9 @@ export const Navbar = () => {
           <Link
             href={item.link}
             key={index}
-            className="hover:opacity-70 cursor-pointer p-3 transition-all duration-200 hover:underline underline-offset-6"
+            className={`hover:opacity-70 cursor-pointer p-3 transition-all duration-200 hover:underline underline-offset-6 ${
+              hash === item.link ? "opacity-100 text-yellow-500" : "opacity-70"
+            }`}
           >
             {item.name}
           </Link>
@@ -79,7 +119,9 @@ export const Navbar = () => {
                 href={item.link}
                 key={index}
                 onClick={() => setOpenOthers(false)}
-                className="cursor-pointer p-3 px-5 rounded-lg hover:bg-gray-800 flex gap-5 items-center transition-all duration-200"
+                className={`cursor-pointer p-3 px-5 rounded-lg hover:bg-gray-800 flex gap-5 items-center transition-all duration-200 ${
+                  hash === item.link ? "border-l-2" : ""
+                }`}
               >
                 {item.icon && <item.icon className="text-2xl" />}
                 <div>
@@ -94,7 +136,9 @@ export const Navbar = () => {
 
       {/* Mobile view menu */}
       <div
-        className="flex md:hidden relative justify-center items-center gap-6 border-2 border-gray-500 w-fit rounded-full bg-[#171717]"
+        className={`flex md:hidden overflow-hidden relative justify-center items-center gap-6 border-2 border-gray-500 w-fit rounded-full bg-[#171717] transition-all duration-800 ${
+          showNavbar ? "opacity-100 max-w-[50rem]" : "opacity-0 max-w-0"
+        }`}
         ref={dropdownRef}
       >
         <button
