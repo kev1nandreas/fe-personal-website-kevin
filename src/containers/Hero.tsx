@@ -78,7 +78,7 @@ export const Hero = () => {
             <IconDescription name={"linkedin"} size={"xl"}></IconDescription>
           </Link>
           <Link href={"https://github.com/kev1nandreas"} target="_blank">
-            <IconDescription name={"mail"} size={"xl"}></IconDescription>
+            <IconDescription name={"github"} size={"xl"}></IconDescription>
           </Link>
         </div>
       </div>
