@@ -155,7 +155,7 @@ export const projects = [
     description:
       "This is a personal landing page I built using Next.js and Tailwind CSS to showcase my profiile and portfolio. It features highly reusable components, is responsive on all devices, and includes interactive elements for a better user experience. This is also my first fully self-designed website, created from scratch with inspiration from various references.",
     techStack: ["next", "tailwind"],
-    image: "/projects/landingpage.png",
+    image: "/projects/landingpagekevin.png",
     link: "https://kevin-andreas.com/",
     github: "https://github.com/kev1nandreas/fe-personal-website-kevin",
     finished: true,
