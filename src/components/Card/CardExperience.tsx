@@ -24,7 +24,7 @@ export const CardExperience = ({
 
   return (
     <div data-aos={"fade-up"} className="flex flex-col lg:flex-row gap-2">
-      <Typography text={"h7"} className="opacity-50 w-[20rem]">
+      <Typography text={"h7"} className="opacity-50 w-[20rem] text-yellow-400">
         {date}
       </Typography>
       <div className="lg:w-[40rem]">

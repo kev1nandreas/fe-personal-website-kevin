@@ -18,7 +18,14 @@ export const Hero = () => {
   });
 
   return (
-    <div id="home" className="flex items-center justify-center h-screen gap-5">
+    <div
+      id="home"
+      className="relative flex items-center justify-center h-screen gap-5"
+    >
+      <div className="absolute top-16 right-0">
+        <div className="w-[26rem] h-[8rem] -rotate-38 blur-[5rem] opacity-40 bg-gradient-to-l from-indigo-700 to-indigo-400"></div>
+      </div>
+
       <div
         data-aos={"fade-right"}
         className="hidden md:flex items-center justify-center"

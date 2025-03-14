@@ -7,6 +7,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { MdMenu } from "react-icons/md";
 import { menu } from "../lib/data";
+import { LuKeyboard } from "react-icons/lu";
 
 export const Navbar = () => {
   const split = 4;
@@ -17,6 +18,8 @@ export const Navbar = () => {
   const [hash, setHash] = useState("/#home");
   const dropdownRef = useRef<HTMLDivElement>(null);
   const navbarRef = useRef<HTMLDivElement>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
+  const [openTooltip, setOpenTooltip] = useState(false);
 
   const homeElement = useRef<HTMLElement | null>(null);
   const aboutElement = useRef<HTMLElement | null>(null);
@@ -25,6 +28,19 @@ export const Navbar = () => {
   const experiencesElement = useRef<HTMLElement | null>(null);
   const projectsElement = useRef<HTMLElement | null>(null);
   const contactElement = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    if (menuRef.current) {
+      menuRef.current.addEventListener("mouseenter", () => {
+        setTimeout(() => {
+          setOpenTooltip(true);
+        }, 1000);
+      });
+      menuRef.current.addEventListener("mouseleave", () => {
+          setOpenTooltip(false);
+      });
+    }
+  }, [openTooltip]);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -126,6 +142,7 @@ export const Navbar = () => {
     >
       {/* Desktop view menu */}
       <div
+        ref={menuRef}
         className={`hidden md:flex relative justify-center items-center gap-6 border-2 border-gray-500 px-10 w-fit rounded-full transition-all duration-800 ${
           showNavbar
             ? "opacity-100 max-w-[50rem]"
@@ -137,17 +154,28 @@ export const Navbar = () => {
         }}
       >
         {menu.slice(0, split).map((item, index) => (
-          <Link
-            href={item.link}
-            key={index}
-            className={`hover:opacity-70 cursor-pointer p-3 transition-all duration-200 hover:underline underline-offset-6 ${
-              hash === item.link ? "opacity-100 text-yellow-500" : "opacity-70"
-            }`}
-          >
-            {item.name}
-          </Link>
+          <div key={index} className="relative">
+            <Link
+              href={item.link}
+              className={`hover:opacity-70 cursor-pointer p-3 transition-all duration-200 hover:underline underline-offset-6 ${
+                hash === item.link
+                  ? "opacity-100 text-yellow-500"
+                  : "opacity-70"
+              }`}
+            >
+              {item.name}
+            </Link>
+
+            {/* Accessibility Tooltip */}
+            <div className={`absolute text-xs flex gap-2 items-center top-11 left-0 right-0 justify-center transition-all duration-400 ${openTooltip ? "max-h-[20rem] opacity-100" : "max-h-0 opacity-0"}`}>
+              <div className="flex gap-1 items-center bg-slate-700 p-1 px-2 rounded-lg">
+                <LuKeyboard className="text-xs" />
+                <span>{index + 1}</span>
+              </div>
+            </div>
+          </div>
         ))}
-        |
+        <span>|</span>
         <button
           className={`hover:opacity-100 transition-all duration-200 cursor-pointer p-3 ${
             openOthers ? "opacity-100" : "opacity-70"
