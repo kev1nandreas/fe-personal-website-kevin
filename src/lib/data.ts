@@ -122,9 +122,9 @@ export const experiences = [
     title: "Head of Organizing Subdivision",
     company: "Schematics NPC 2025 - Surabaya",
     description: [
-      "Planned and managed team itineraries, schedules, and administrative tasks to ensure operational efficiency.",
-      "Contribute to the preparation and logistical arrangements for the team's participation in KRTI 2024 in Yogyakarta.",
-      "Developed adaptability and problem-solving skills by handling dynamic administrative and organizational challenges.",
+      "Managed Discord server and infrastructure for smooth CP and CTF execution.",
+      "Ensured seamless event operations, troubleshooting issues in real time.",
+      "Led the team, fostering clear and effective communication for efficient coordination.",
     ],
   },
   {

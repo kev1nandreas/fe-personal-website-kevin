@@ -18,6 +18,25 @@ export const Navbar = () => {
   const dropdownRef = useRef<HTMLDivElement>(null);
   const navbarRef = useRef<HTMLDivElement>(null);
 
+  const homeElement = useRef<HTMLElement | null>(null);
+  const aboutElement = useRef<HTMLElement | null>(null);
+  const educationElement = useRef<HTMLElement | null>(null);
+  const achievementsElement = useRef<HTMLElement | null>(null);
+  const experiencesElement = useRef<HTMLElement | null>(null);
+  const projectsElement = useRef<HTMLElement | null>(null);
+  const contactElement = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    contactElement.current = document.getElementById("contact");
+    projectsElement.current = document.getElementById("projects");
+    experiencesElement.current = document.getElementById("experiences");
+    achievementsElement.current = document.getElementById("achievements");
+    educationElement.current = document.getElementById("education");
+    aboutElement.current = document.getElementById("about");
+    homeElement.current = document.getElementById("home");
+  });
+
   useEffect(() => {
     AOS.init({
       duration: 1000,
@@ -55,13 +74,30 @@ export const Navbar = () => {
       if (window.scrollY >= scroll) setShowNavbar(false);
       else setShowNavbar(true);
 
-      if (window.scrollY >= 4742) setHash("/#contact");
-      else if (window.scrollY >= 3450) setHash("/#projects");
-      else if (window.scrollY >= 2268) setHash("/#experiences");
-      else if (window.scrollY >= 1300) setHash("/#achievements");
-      else if (window.scrollY >= 621) setHash("/#education");
-      else if (window.scrollY >= 490) setHash("/#about");
-      else setHash("/#home");
+      homeElement.current && window.scrollY === 0 && setHash("/#home");
+      aboutElement.current &&
+        window.scrollY >= aboutElement.current.getBoundingClientRect().top &&
+        setHash("/#about");
+      educationElement.current &&
+        window.scrollY >=
+          educationElement.current.getBoundingClientRect().top + 300 &&
+        setHash("/#education");
+      achievementsElement.current &&
+        window.scrollY >=
+          achievementsElement.current.getBoundingClientRect().top + 1000 &&
+        setHash("/#achievements");
+      experiencesElement.current &&
+        window.scrollY >=
+          experiencesElement.current.getBoundingClientRect().top + 1800 &&
+        setHash("/#experiences");
+      projectsElement.current &&
+        window.scrollY >=
+          projectsElement.current.getBoundingClientRect().top + 2800 &&
+        setHash("/#projects");
+      contactElement.current &&
+        window.scrollY >=
+          contactElement.current.getBoundingClientRect().top + 4000 &&
+        setHash("/#contact");
 
       setScroll(window.scrollY);
     };
@@ -71,7 +107,7 @@ export const Navbar = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [scroll, openOthers]);
+  });
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -152,7 +188,9 @@ export const Navbar = () => {
       {/* Mobile view menu */}
       <div
         className={`flex md:hidden relative justify-center items-center gap-6 border-2 border-gray-500 w-fit rounded-full bg-[#171717] transition-all duration-800 ${
-          showNavbar ? "opacity-100 max-w-[50rem]" : "opacity-0 max-w-0 overflow-hidden"
+          showNavbar
+            ? "opacity-100 max-w-[50rem]"
+            : "opacity-0 max-w-0 overflow-hidden"
         }`}
         ref={dropdownRef}
       >

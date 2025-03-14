@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-expressions */
-'use client';
+"use client";
 
 import { About } from "@/containers/About";
 import { Achievements } from "@/containers/Achievements";
@@ -18,6 +18,16 @@ export default function Page() {
   useEffect(() => {
     window.addEventListener("scroll", () => {
       window.scrollY > 400 ? setIsScrolled(true) : setIsScrolled(false);
+    });
+
+    window.addEventListener("keydown", (e) => {
+      e.key === "1" && window.location.replace("/#home");
+      e.key === "2" && window.location.replace("/#about");
+      e.key === "3" && window.location.replace("/#education");
+      e.key === "4" && window.location.replace("/#achievements");
+      e.key === "5" && window.location.replace("/#experiences");
+      e.key === "6" && window.location.replace("/#projects");
+      e.key === "7" && window.location.replace("/#contact");
     });
   }, []);
 
