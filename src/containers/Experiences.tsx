@@ -3,7 +3,6 @@
 import { CardExperience } from "@/components/Card/CardExperience";
 import { Typography } from "@/components/Typography";
 import { experiences } from "@/lib/data";
-import Image from "next/image";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
