@@ -17,6 +17,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Kevin Andreas",
   description: "Personal Website | Kevin Andreas",
+  icons: {
+    icon: "/LogoKevin.png"
+  },
 };
 
 export default function RootLayout({
