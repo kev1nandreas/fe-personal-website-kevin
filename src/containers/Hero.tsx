@@ -26,6 +26,10 @@ export const Hero = () => {
         <div className="w-[26rem] h-[8rem] -rotate-38 blur-[5rem] opacity-40 bg-gradient-to-l from-indigo-700 to-indigo-400"></div>
       </div>
 
+      <div className="absolute bottom-16 right-[10rem]">
+        <div className="w-[20rem] h-[20rem] -rotate-38 blur-[6rem] opacity-10 bg-gradient-to-l from-indigo-700 to-indigo-400"></div>
+      </div>
+
       <div
         data-aos={"fade-right"}
         className="hidden md:flex items-center justify-center"

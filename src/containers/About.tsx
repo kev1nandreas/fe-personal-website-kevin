@@ -32,7 +32,9 @@ export const About = () => {
             alt="grid"
             width={1000}
             height={1000}
-            className="w-full h-full object-cover rounded-full opacity-30"
+            draggable={false} 
+            priority={true}
+            className="w-full h-full object-cover rounded-full opacity-30 pointer-events-none select-none"
           />
         </div>
 

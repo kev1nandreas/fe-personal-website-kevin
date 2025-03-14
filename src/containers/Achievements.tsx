@@ -7,6 +7,8 @@ import Image from "next/image";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
+import { CiTrophy } from "react-icons/ci";
+import { CiMedal } from "react-icons/ci";
 
 export const Achievements = () => {
   useEffect(() => {
@@ -46,6 +48,11 @@ export const Achievements = () => {
           I embrace competition to push my limits, sharpen my skills, and keep
           growing. Here are some of my achievements.
         </Typography>
+
+        <div className="flex gap-5 mt-10 text-white text-[12rem] opacity-20 hover:scale-105 hover:opacity-70 !transition-all !duration-300 !ease-in-out">
+          <CiTrophy className="-rotate-20" />
+          <CiMedal className="rotate-30 mt-30" />
+        </div>
       </div>
 
       {/* Right Container */}

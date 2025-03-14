@@ -24,8 +24,22 @@ export const Educations = () => {
         text={"h1"}
         className="relative text-center border-2 md:text-left bg-gradient-to-r from-yellow-500 to-yellow-500 via-yellow-300 text-transparent bg-clip-text hover:scale-105 !transition-all !duration-800 !ease-in-out"
       >
-        <Image src={"/assets/arrow/arrow1.png"} alt={"arrow"} width={1000} height={1000} className="hidden md:block md:absolute w-[15rem] rotate-20 -right-[16rem] top-5"></Image>
-        <Image src={"/assets/arrow/arrow1.png"} alt={"arrow"} width={1000} height={1000} className="hidden md:block md:absolute w-[15rem] scale-x-[-1] -rotate-20 -left-[16rem] top-5"></Image>
+        <Image
+          src={"/assets/arrow/arrow1.png"}
+          alt={"arrow"}
+          width={1000}
+          height={1000}
+          draggable={false}
+          className="hidden md:block md:absolute w-[15rem] rotate-20 -right-[16rem] top-5 pointer-events-none select-none"
+        ></Image>
+        <Image
+          src={"/assets/arrow/arrow1.png"}
+          alt={"arrow"}
+          width={1000}
+          height={1000}
+          draggable={false}
+          className="hidden md:block md:absolute w-[15rem] scale-x-[-1] -rotate-20 -left-[16rem] top-5 pointer-events-none select-none"
+        ></Image>
         Educations
       </Typography>
       <div className="flex gap-5 md:flex-row flex-col mt-[3rem]">

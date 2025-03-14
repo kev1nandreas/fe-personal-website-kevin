@@ -8,7 +8,7 @@ import { Button } from "../Button/Button";
 import { IconDescription } from "../IconDescription";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 
 interface CardProjectProps {
   index: number;
@@ -31,6 +31,20 @@ export const CardProject = ({
   image,
   finished,
 }: CardProjectProps) => {
+  const divRef = useRef<HTMLDivElement>(null);
+  const [hover, setHover] = useState(false);
+
+  useEffect(() => {
+    if (divRef.current) {
+      divRef.current.addEventListener("mouseenter", () => {
+        setHover(true);
+      });
+      divRef.current.addEventListener("mouseleave", () => {
+        setHover(false);
+      });
+    }
+  });
+
   useEffect(() => {
     AOS.init({
       duration: 1000,
@@ -39,8 +53,9 @@ export const CardProject = ({
 
   return (
     <div
+      ref={divRef}
       data-aos={"fade-up"}
-      className="flex flex-col justify-center items-center md:flex-row gap-15 p-5 rounded-2xl relative overflow-hidden"
+      className="flex flex-col justify-center items-center md:flex-row gap-15 p-5 rounded-2xl relative overflow-hidden hover:-translate-y-2 !transition-all !duration-600 !ease-in-out"
       style={{ borderColor: "rgba(255, 255, 255, 0.05)", borderWidth: 1 }}
     >
       {index === 0 && (
@@ -65,7 +80,7 @@ export const CardProject = ({
 
       <div className="max-w-[40rem] flex flex-col gap-4">
         <div className="flex items-center justify-between">
-          <Typography text={"h4"} className="text-2xl">
+          <Typography text={"h4"} className={`text-2xl !transition-all !duration-1000 !ease-in-out ${hover ? "underline underline-offset-4 decoration-yellow-500/80 decoration-dashed" : ""}`}>
             {title}
           </Typography>
 

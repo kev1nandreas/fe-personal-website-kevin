@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 import { cva, type VariantProps } from "class-variance-authority";
 import React from "react";
 
-const TypographyVariant = cva("", {
+const TypographyVariant = cva("transition-all duration-1000 ease-in-out", {
   variants: {
     text: {
       body: "text-md font-normal",
