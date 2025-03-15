@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-expressions */
 "use client";
 
 import { About } from "@/containers/About";
