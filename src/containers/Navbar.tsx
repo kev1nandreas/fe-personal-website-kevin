@@ -30,13 +30,15 @@ export const Navbar = () => {
   const contactElement = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
+    let timeout: NodeJS.Timeout;
     if (menuRef.current) {
       menuRef.current.addEventListener("mouseenter", () => {
-        setTimeout(() => {
+        timeout = setTimeout(() => {
           setOpenTooltip(true);
         }, 800);
       });
       menuRef.current.addEventListener("mouseleave", () => {
+        clearTimeout(timeout);
         setOpenTooltip(false);
       });
     }
