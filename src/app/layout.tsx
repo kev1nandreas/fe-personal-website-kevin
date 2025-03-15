@@ -15,8 +15,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Under Development | Kevin Andreas",
-  description: "Personal Website | Kevin Andreas",
+  title: "Kevin Andreas",
+  description: "Personal Landing Page of Kevin Andreas",
+  icons: {
+    icon: "/LogoKevin.png"
+  },
 };
 
 export default function RootLayout({
