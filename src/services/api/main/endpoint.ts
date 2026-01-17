@@ -1,9 +1,6 @@
 export const MAIN_ENDPOINT = {
 	Auth: {
-		Login: "/login",
-		Logout: "/logout",
+		Login: "/auth/login",
+		CurrentUser: "/auth/me",
 	},
-	Links:{
-		Get: "/links/find/:slug",
-	}
 };

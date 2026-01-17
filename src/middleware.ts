@@ -1,27 +1,48 @@
-// import { jwtVerify } from "jose";
-import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
+import { NextResponse } from "next/server";
+import { ENV } from "./configs/environment";
 import { PATH } from "./shared/path";
 
+const TOKEN_KEY = ENV.TOKEN_KEY;
+// const JWT_SECRET = ENV.JWT_SCREET;
+
 export async function middleware(request: NextRequest) {
-  // Skip middleware for RSC requests
-  if (
-    request.headers.get("RSC") === "1" ||
-    request.headers.get("Next-Router-State-Tree") ||
-    request.headers.get("Next-Router-Prefetch")
-  ) {
-    return NextResponse.next();
-  }
+	const token = request.cookies.get(TOKEN_KEY);
+	console.log({ token });
 
-  const pathname = request.nextUrl.pathname;
+	// Cek apakah user sudah berada di halaman "not found" untuk menghindari redirect loop
+	if (request.nextUrl.pathname === PATH.NOT_FOUND) {
+		return NextResponse.next();
+	}
 
-  if (pathname === "/s") {
-    return NextResponse.redirect(new URL(PATH.HOME, request.url));
-  }
+	// Jika token tidak ada, tampilkan halaman "not found" tanpa redirect loop
+	if (!token) {
+		return NextResponse.rewrite(new URL(PATH.NOT_FOUND, request.url));
+	}
 
-  return NextResponse.next();
+	try {
+		// Verifikasi token JWT
+		// const secret = new TextEncoder().encode(JWT_SECRET);
+		// const { payload } = await jwtVerify(token.value, secret, {
+		// 	algorithms: ["HS256"],
+		// });
+
+		// Cek apakah token sudah kedaluwarsa
+		// const currentTime = Math.floor(Date.now() / 1000);
+		// if (payload.exp && payload.exp < currentTime) {
+		// 	request.cookies.delete(TOKEN_KEY);
+		// 	return NextResponse.rewrite(new URL(PATH.NOT_FOUND, request.url));
+		// }
+
+		// Jika token valid, lanjutkan ke halaman tujuan
+		return NextResponse.next();
+	} catch {
+		// Hapus token jika verifikasi gagal dan tampilkan halaman "not found"
+		request.cookies.delete(TOKEN_KEY);
+		return NextResponse.rewrite(new URL(PATH.NOT_FOUND, request.url));
+	}
 }
 
 export const config = {
-  matcher: ["/", "/s/:slug", "/s"],
+	matcher: ["/guard/:path*", "/contact"],
 };

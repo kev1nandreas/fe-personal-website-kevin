@@ -1,8 +1,7 @@
 "use server";
 
-import { ENV } from "@/configs/environment";
-import { removeCookies } from "@/modules/cookies";
 import type { AxiosError, AxiosResponse } from "axios";
+import { removeToken } from "@/lib/cookies";
 import api from "./interceptor";
 
 interface Status {
@@ -129,7 +128,7 @@ function handleAxiosError<T>(error: unknown): Res<T> {
 
 		if (axiosError.response) {
 			if (StatusCode === 401) {
-				removeCookies(ENV.TOKEN_KEY);
+				removeToken();
 			}
 			return {
 				OK: false,
