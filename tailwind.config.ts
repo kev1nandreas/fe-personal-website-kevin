@@ -68,6 +68,9 @@ const config: Config = {
 				footer: "0px -2px 4px rgba(0, 0, 0, 0.25)",
 				"card-menu": "0 4px 18px rgba(0, 0, 0, 0.15)",
 			},
+			zIndex: {
+				45: "45",
+			},
 		},
 	},
 	plugins: [],

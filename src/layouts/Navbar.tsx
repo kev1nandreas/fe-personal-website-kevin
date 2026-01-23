@@ -1,167 +1,152 @@
 "use client";
 
-import { usePathname } from "next/navigation";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { Backdrop, Box, Slide } from "@mui/material";
+import { Menu, Sun, X } from "lucide-react";
+import Image from "next/image";
+import { useState } from "react";
+import IconButton from "@/components/button/IconButton";
 import UnstyledLink from "@/components/links/UnstyledLink";
-import NextImage from "@/components/NextImage";
-
-const navLinks = [
-	{ href: "/", label: "Beranda" },
-	{ href: "/about", label: "Tentang Kami" },
-	{ href: "/gallery", label: "Galeri" },
-];
+import clsxm from "@/lib/clsxm";
+import { navLinks } from "@/lib/data";
 
 export default function Navbar() {
-	const [isOpen, setIsOpen] = useState(false);
-	const dropdownRef = useRef<HTMLDivElement>(null);
-	const pathname = usePathname();
+	const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
-	const isActive = useMemo(
-		() => (href: string) => pathname === href,
-		[pathname],
-	);
+	const toggleDrawer = () => {
+		setIsDrawerOpen(!isDrawerOpen);
+	};
 
-	useEffect(() => {
-		function handleClickOutside(event: MouseEvent) {
-			if (
-				dropdownRef.current &&
-				!dropdownRef.current.contains(event.target as Node)
-			) {
-				setIsOpen(false);
-			}
-		}
-
-		if (isOpen) {
-			document.addEventListener("mousedown", handleClickOutside);
-		}
-
-		return () => {
-			document.removeEventListener("mousedown", handleClickOutside);
-		};
-	}, [isOpen]);
+	const closeDrawer = () => {
+		setIsDrawerOpen(false);
+	};
 
 	return (
-		<nav className="bg-white shadow-md w-full fixed z-50">
-			<div className="px-4 sm:px-6 md:px-8 lg:px-[8%] mx-auto">
-				<div className="flex items-center justify-between h-20 max-md:h-16">
-					{/* Logo */}
-					<UnstyledLink
-						href={`/`}
-						className="flex items-center gap-2 max-md:gap-1"
-					>
-						<NextImage
-							width={552}
-							height={388}
-							src={"/next.svg"}
-							alt="Logo"
-							priority
-							serverStaticImg
-							className="flex max-w-[75px] items-center md:max-w-[100px]"
-						/>
-						<p className="text-xl max-md:text-base max-lg:hidden max-md:block text-gray-900 font-semibold">
-							Next Template
-						</p>
-					</UnstyledLink>
-
-					{/* Desktop Menu */}
-					<div className="hidden md:flex items-center space-x-8">
-						<div className="flex items-baseline space-x-6">
-							{navLinks.map((link) => (
-								<UnstyledLink
-									href={link.href}
-									key={link.href}
-									className="group relative cursor-pointer"
-								>
-									<p
-										className={`relative z-10 transition-all duration-300 ease-in-out ${
-											isActive(link.href)
-												? "text-gray-700 font-bold"
-												: "hover:text-gray-700 text-gray-400"
-										}`}
-									>
-										{link.label}
-									</p>
-									<span
-										className={`absolute bottom-0 h-[1px] bg-gray-700 rounded-full transition-all duration-300 ease-in-out left-1/2 w-0 group-hover:w-full group-hover:left-0`}
-									></span>
-								</UnstyledLink>
-							))}
+		<>
+			<nav className="w-full flex justify-center items-center py-4 px-4 fixed top-0 left-0 right-0 z-50">
+				<div
+					className={clsxm(
+						"w-full max-w-4xl flex items-center justify-between",
+						"py-3 px-5 md:px-6",
+						"bg-neutral-900/80 backdrop-blur-md",
+						"border border-neutral-700/50 rounded-2xl",
+						"shadow-lg shadow-black/10",
+					)}
+				>
+					<Box gap={1.5} flexDirection="row" display="flex" alignItems="center">
+						<div className="relative w-9 h-9 md:w-10 md:h-10 rounded-full overflow-hidden">
+							<Image
+								src="/image.png"
+								alt="Kevin Andreas"
+								fill
+								className="object-cover"
+							/>
 						</div>
-					</div>
+						<span className="font-semibold text-sm md:text-base bg-linear-to-r from-neutral-200 to-neutral-400 bg-clip-text text-transparent">
+							Kevin Andreas
+						</span>
+					</Box>
 
-					{/* Mobile Menu */}
-					<div className="md:hidden">
-						{/* Mobile Menu Button */}
+					<Box gap={1} display={{ xs: "none", md: "flex" }} alignItems="center">
+						{navLinks.map((link) => (
+							<UnstyledLink
+								key={link.href}
+								href={link.href}
+								className={clsxm(
+									"px-4 py-2 rounded-xl",
+									"text-sm font-medium text-neutral-400",
+									"hover:text-neutral-100 hover:bg-neutral-800/60",
+									"transition-all duration-200",
+								)}
+							>
+								{link.name}
+							</UnstyledLink>
+						))}
+					</Box>
+
+					<div className="flex items-center gap-2">
+						<IconButton
+							icon={Sun}
+							variant="ghost"
+							size="base"
+							className="text-neutral-400 hover:text-neutral-100 hover:bg-neutral-800/60 hidden md:flex"
+						/>
+
 						<button
 							type="button"
-							onClick={() => setIsOpen(!isOpen)}
-							className="inline-flex items-center cursor-pointer justify-center rounded-md pt-1 text-primary-500 hover:text-primary-600 focus:outline-none focus:ring-inset focus:ring-white transition-colors duration-200"
-							aria-expanded={isOpen}
-							aria-label="Toggle navigation menu"
+							onClick={toggleDrawer}
+							className={clsxm(
+								"md:hidden p-2 rounded-xl",
+								"text-neutral-400 hover:text-neutral-100",
+								"hover:bg-neutral-800/60",
+								"transition-all duration-200",
+							)}
+							aria-label="Toggle menu"
 						>
-							<span className="sr-only">Open main menu</span>
-							{isOpen ? (
-								<svg
-									className="h-6 w-6"
-									xmlns="http://www.w3.org/2000/svg"
-									fill="none"
-									viewBox="0 0 24 24"
-									stroke="currentColor"
-									aria-hidden="true"
-								>
-									<path
-										strokeLinecap="round"
-										strokeLinejoin="round"
-										strokeWidth="2"
-										d="M6 18L18 6M6 6l12 12"
-									/>
-								</svg>
+							{isDrawerOpen ? (
+								<X className="w-5 h-5" />
 							) : (
-								<svg
-									className="h-6 w-6"
-									xmlns="http://www.w3.org/2000/svg"
-									fill="none"
-									viewBox="0 0 24 24"
-									stroke="currentColor"
-									aria-hidden="true"
-								>
-									<path
-										strokeLinecap="round"
-										strokeLinejoin="round"
-										strokeWidth="2"
-										d="M4 6h16M4 12h16M4 18h16"
-									/>
-								</svg>
+								<Menu className="w-5 h-5" />
 							)}
 						</button>
+					</div>
+				</div>
+			</nav>
 
-						{/* Mobile Menu Dropdown */}
-						<div
-							ref={dropdownRef}
-							className={`absolute top-full left-0 right-0 md:hidden transition-all duration-500 ease-in-out ${
-								isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-							} overflow-hidden bg-white border-t border-gray-200 shadow-lg z-50`}
-						>
-							<div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-								{navLinks.map((link) => (
-									<UnstyledLink
-										key={link.href}
-										href={link.href}
-										className={`block px-3 py-2 rounded-md text-base transition-colors duration-300 ${
-											isActive(link.href)
-												? "bg-primary-400 text-white font-semibold"
-												: "text-gray-400 hover:bg-primary-500 hover:text-white"
-										}`}
-										onClick={() => setIsOpen(false)}
-									>
-										{link.label}
-									</UnstyledLink>
-								))}
-							</div>
+			{/* Mobile Drawer Backdrop */}
+			<Backdrop
+				open={isDrawerOpen}
+				onClick={closeDrawer}
+				sx={{
+					zIndex: 40,
+					backgroundColor: "rgba(0, 0, 0, 0.6)",
+					backdropFilter: "blur(4px)",
+				}}
+			/>
+
+			{/* Mobile Drawer from Top */}
+			<Slide direction="down" in={isDrawerOpen} mountOnEnter unmountOnExit>
+				<div
+					className={clsxm(
+						"fixed top-22 left-4 right-4 z-45",
+						"bg-neutral-900/95 backdrop-blur-lg",
+						"border border-neutral-700/50 rounded-2xl",
+						"shadow-2xl shadow-black/30",
+						"p-4",
+					)}
+				>
+					<div className="flex flex-col gap-1">
+						{navLinks.map((link) => (
+							<UnstyledLink
+								key={link.href}
+								href={link.href}
+								onClick={closeDrawer}
+								className={clsxm(
+									"px-4 py-3 rounded-xl",
+									"text-base font-medium text-neutral-300",
+									"hover:text-neutral-100 hover:bg-neutral-800/60",
+									"transition-all duration-200",
+									"flex items-center",
+								)}
+							>
+								{link.name}
+							</UnstyledLink>
+						))}
+					</div>
+
+					{/* Drawer Footer */}
+					<div className="mt-4 pt-4 border-t border-neutral-700/50">
+						<div className="flex items-center justify-between px-4">
+							<span className="text-sm text-neutral-500">Theme</span>
+							<IconButton
+								icon={Sun}
+								variant="ghost"
+								size="base"
+								className="text-neutral-400 hover:text-neutral-100 hover:bg-neutral-800/60"
+							/>
 						</div>
 					</div>
 				</div>
-			</div>
-		</nav>
+			</Slide>
+		</>
 	);
 }

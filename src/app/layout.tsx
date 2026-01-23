@@ -1,12 +1,16 @@
 import "./globals.css";
 
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Poppins } from "next/font/google";
 import Head from "next/head";
 import Providers from "@/app/providers";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const poppins = Poppins({
+	subsets: ["latin"],
+	variable: "--font-poppins",
+	weight: ["400", "500", "600", "700", "800", "900"],
+});
 
 const siteConfig = {
 	title: "Next Template",
@@ -45,7 +49,7 @@ export default function RootLayout({
 				<meta name="apple-mobile-web-app-title" content={siteConfig.title} />
 			</Head>
 			{process.env.NEXT_PUBLIC_RUN_MODE === "production" && <GoogleAnalytics />}
-			<body className={`${inter.className}`}>
+			<body className={`${poppins.className}`}>
 				<Providers>{children}</Providers>
 			</body>
 		</html>

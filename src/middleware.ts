@@ -1,14 +1,13 @@
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
-import { ENV } from "./configs/environment";
 import { PATH } from "./shared/path";
 
-const TOKEN_KEY = ENV.TOKEN_KEY;
-// const JWT_SECRET = ENV.JWT_SCREET;
+// const TOKEN_KEY = ENV.TOKEN_KEY;
+// // const JWT_SECRET = ENV.JWT_SCREET;
 
 export async function middleware(request: NextRequest) {
-	const token = request.cookies.get(TOKEN_KEY);
-	console.log({ token });
+	// const token = request.cookies.get(TOKEN_KEY);
+	// console.log({ token });
 
 	// Cek apakah user sudah berada di halaman "not found" untuk menghindari redirect loop
 	if (request.nextUrl.pathname === PATH.NOT_FOUND) {
@@ -16,9 +15,9 @@ export async function middleware(request: NextRequest) {
 	}
 
 	// Jika token tidak ada, tampilkan halaman "not found" tanpa redirect loop
-	if (!token) {
-		return NextResponse.rewrite(new URL(PATH.NOT_FOUND, request.url));
-	}
+	// if (!token) {
+	// 	return NextResponse.rewrite(new URL(PATH.NOT_FOUND, request.url));
+	// }
 
 	try {
 		// Verifikasi token JWT
@@ -38,7 +37,7 @@ export async function middleware(request: NextRequest) {
 		return NextResponse.next();
 	} catch {
 		// Hapus token jika verifikasi gagal dan tampilkan halaman "not found"
-		request.cookies.delete(TOKEN_KEY);
+		// request.cookies.delete(TOKEN_KEY);
 		return NextResponse.rewrite(new URL(PATH.NOT_FOUND, request.url));
 	}
 }
