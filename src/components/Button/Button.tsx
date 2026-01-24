@@ -52,7 +52,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 					"inline-flex items-center cursor-pointer justify-center rounded-lg font-medium",
 					"focus:outline-none focus-visible:ring",
 					"shadow-sm",
-					"transition-colors duration-75",
+					"transition-colors duration-300 ease-in-out",
 					//#region  //*=========== Size ===========
 					[
 						size === "lg" && [
@@ -60,7 +60,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 							"text-base",
 						],
 						size === "base" && [
-							"min-h-[2rem] px-3 md:min-h-[2.25rem]",
+							"min-h-[3rem] px-4 md:min-h-[2.5rem]",
 							"text-sm md:text-base",
 						],
 						size === "sm" && [
@@ -72,11 +72,11 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 					//#region  //*=========== Variants ===========
 					[
 						variant === "primary" && [
-							"bg-primary-500 text-white",
-							"border border-primary-600",
-							"hover:bg-primary-600 hover:text-white",
-							"active:bg-primary-700",
-							"focus-visible:ring-primary-400",
+							"bg-accent-secondary text-white",
+							"border border-accent-secondary",
+							"hover:bg-accent-secondary/90 hover:text-white",
+							"active:bg-accent-secondary/80",
+							"focus-visible:ring-accent-secondary/50",
 						],
 						variant === "blue" && [
 							"bg-blue-500 text-white",
@@ -107,9 +107,11 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 							"focus-visible:ring-yellow-400",
 						],
 						variant === "outline" && [
-							"text-black",
-							"border border-gray-300",
-							"hover:bg-slate-200 focus-visible:ring-gray-400 active:bg-slate-500 disabled:bg-slate-500",
+							"text-accent-secondary",
+							"border-2 border-accent-secondary",
+							"hover:bg-accent-secondary hover:text-white",
+							"active:bg-accent-secondary/90",
+							"focus-visible:ring-accent-secondary/50",
 						],
 						variant === "ghost" && [
 							"text-neutral-500",

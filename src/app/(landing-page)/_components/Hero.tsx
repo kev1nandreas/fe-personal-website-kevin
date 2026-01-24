@@ -1,5 +1,6 @@
 "use client";
 
+import { MoveDownIcon } from "lucide-react";
 import { IconDescription } from "@/components/IconDescriprion";
 import ModelViewer from "@/components/ModelViewer";
 import { Typography } from "@/components/Typography";
@@ -60,7 +61,7 @@ export default function Hero() {
 				</div>
 			</div>
 
-			<div className="relative z-10">
+			<div className="relative z-10 hidden md:flex items-center justify-center">
 				<div className="relative">
 					<div className="absolute inset-0 bg-linear-to-r from-accent/30 to-accent-secondary/30 rounded-full blur-3xl scale-75" />
 					<ModelViewer
@@ -71,8 +72,8 @@ export default function Hero() {
 						rotationY={-30}
 						rotationZ={0}
 						cameraDistance={2}
-						minZoom={2}
-						maxZoom={2}
+						minZoom={1}
+						maxZoom={3}
 						backgroundColor="transparent"
 					/>
 				</div>
@@ -81,21 +82,7 @@ export default function Hero() {
 			{/* Scroll Indicator */}
 			<div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
 				<Typography className="text-sm text-muted">Scroll Down</Typography>
-				<svg
-					className="w-5 h-5 text-muted"
-					fill="none"
-					stroke="currentColor"
-					viewBox="0 0 24 24"
-					xmlns="http://www.w3.org/2000/svg"
-				>
-					<title>Scroll Down Arrow</title>
-					<path
-						strokeLinecap="round"
-						strokeLinejoin="round"
-						strokeWidth={2}
-						d="M19 14l-7 7m0 0l-7-7m7 7V3"
-					/>
-				</svg>
+				<MoveDownIcon className="text-muted" />
 			</div>
 		</section>
 	);

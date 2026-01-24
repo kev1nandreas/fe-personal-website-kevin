@@ -13,9 +13,9 @@ const poppins = Poppins({
 });
 
 const siteConfig = {
-	title: "Next Template",
+	title: "Kevin Andreas",
 	description:
-		"A Next.js 15 starter template with TypeScript, Tailwind CSS v4, and built-in tools for efficient development.",
+		"Personal website of Kevin Andreas, a web developer and data scientist passionate about building modern web applications and extracting meaningful insights from data.",
 	url: process.env.SITE_URL || "https://example.com",
 };
 
@@ -24,6 +24,9 @@ export const metadata: Metadata = {
 	title: {
 		default: siteConfig.title,
 		template: `%s - ${siteConfig.title}`,
+	},
+	icons: {
+		icon: "/image.png",
 	},
 	description: siteConfig.description,
 	twitter: {

@@ -16,16 +16,17 @@ const defaultQueryFn = async ({ queryKey }: QueryOptions) => {
 	return data;
 };
 const queryClient = new QueryClient({
-	defaultOptions: {
-		queries: {
-			queryFn: defaultQueryFn,
-		},
-	},
+	defaultOptions: { queries: { queryFn: defaultQueryFn } },
 });
 
 export default function Providers({ children }: { children: React.ReactNode }) {
 	return (
-		<ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+		<ThemeProvider
+			attribute="class"
+			defaultTheme="system"
+			enableSystem
+			storageKey="theme"
+		>
 			<QueryClientProvider client={queryClient}>
 				<Toaster position="top-center" />
 				<NuqsAdapter>{children}</NuqsAdapter>
