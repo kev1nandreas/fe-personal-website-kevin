@@ -2,28 +2,68 @@
 @config "../../tailwind.config.ts";
 
 :root {
-	--background: #171717;
-	--foreground: #ffffff;
+	--background: #ffffff;
+	--foreground: #171717;
+	--accent: #3b82f6;
+	--accent-secondary: #10b981;
+	--muted: #6b7280;
+	--card: #f3f4f6;
+}
+
+.dark {
+	--background: #0a0a0a;
+	--foreground: #ededed;
+	--accent: #60a5fa;
+	--accent-secondary: #34d399;
+	--muted: #9ca3af;
+	--card: #1f2937;
 }
 
 @theme inline {
 	--color-background: var(--background);
 	--color-foreground: var(--foreground);
+	--color-accent: var(--accent);
+	--color-accent-secondary: var(--accent-secondary);
+	--color-muted: var(--muted);
+	--color-card: var(--card);
 	--font-sans: var(--font-geist-sans);
 	--font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-	:root {
-		--background: #0a0a0a;
-		--foreground: #ededed;
-	}
 }
 
 body {
 	background: var(--background);
 	color: var(--foreground);
 	font-family: Arial, Helvetica, sans-serif;
+	transition:
+		background-color 0.3s ease,
+		color 0.3s ease;
+}
+
+/* Gradient text utility */
+.gradient-text {
+	background: linear-gradient(
+		135deg,
+		var(--accent) 0%,
+		var(--accent-secondary) 100%
+	);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+}
+
+/* Highlight text utility */
+.highlight-web {
+	background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+}
+
+.highlight-data {
+	background: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
 }
 
 .primary-500 {

@@ -1,7 +1,7 @@
 import { ArrowRight, Plus } from "lucide-react";
 import Button from "@/components/button/Button";
 import ButtonLink from "@/components/links/ButtonLink";
-import Typography from "@/components/Typography";
+import { Typography } from "@/components/Typography";
 
 const buttonVariants = [
 	{
@@ -43,7 +43,7 @@ export default function ButtonPage() {
 			<section className="flex flex-col gap-8 px-24">
 				{buttonVariants.map(({ variant, label }) => (
 					<div key={variant}>
-						<Typography as="h2">{label}</Typography>
+						<Typography variant="h2">{label}</Typography>
 						{buttonStates.map((state) => (
 							<div
 								key={state || "default"}
@@ -74,7 +74,7 @@ export default function ButtonPage() {
 				))}
 
 				<div>
-					<Typography as="h2">Button Link</Typography>
+					<Typography variant="h2">Button Link</Typography>
 					{buttonVariants.map(({ variant, label }) => {
 						if (variant === "red") return null;
 

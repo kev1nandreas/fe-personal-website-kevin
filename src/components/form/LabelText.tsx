@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 
-import Typography from "@/components/Typography";
 import clsxm from "@/lib/clsxm";
+import { Typography } from "../Typography";
 
 export default function LabelText({
 	children,
@@ -14,8 +14,7 @@ export default function LabelText({
 }) {
 	return (
 		<Typography
-			as="p"
-			variant="p"
+			variant="body"
 			className={clsxm("text-sm text-gray-900", labelTextClasname)}
 		>
 			{children} {required && <span className="text-red-500">*</span>}

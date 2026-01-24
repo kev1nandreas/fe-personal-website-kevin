@@ -1,103 +1,38 @@
-import { Montserrat, Poppins } from "next/font/google";
-import type * as React from "react";
-import clsxm from "@/lib/clsxm";
+import { cva, type VariantProps } from "class-variance-authority";
+import type React from "react";
+import { cn } from "@/lib/utils";
 
-const poppins = Poppins({
-	subsets: ["latin"],
-	weight: ["200", "300", "400", "500", "600", "700", "800"],
-	style: ["normal", "italic"],
-	variable: "--font-poppins",
+const TypographyVariant = cva("transition-all duration-300 ease-in-out", {
+	variants: {
+		variant: {
+			body: "text-md font-normal",
+			h1: "md:text-6xl font-semibold text-5xl",
+			h2: "md:text-5xl font-semibold text-4xl",
+			h3: "md:text-4xl font-semibold text-3xl",
+			h4: "md:text-3xl font-semibold text-lg",
+			h5: "md:text-2xl font-semibold text-xl",
+			h6: "md:text-xl font-semibold text-lg",
+			h7: "md:text-lg font-semibold text-md",
+		},
+	},
+	defaultVariants: {
+		variant: "body",
+	},
 });
-const montserrat = Montserrat({
-	subsets: ["latin"],
-	weight: ["200", "300", "400", "500", "600", "700", "800"],
-	variable: "--font-montserrat",
-});
 
-enum FontVariant {
-	Inter,
-	Poppins,
-	Montserrat,
-}
+interface TypographyProps
+	extends React.HTMLAttributes<HTMLElement>,
+		VariantProps<typeof TypographyVariant> {}
 
-enum FontWeight {
-	thin,
-	extralight,
-	light,
-	regular,
-	medium,
-	semibold,
-	bold,
-	extrabold,
-	black,
-}
-
-type TypographyProps<T extends React.ElementType> = {
-	as?: T;
-	className?: string;
-	weight?: keyof typeof FontWeight;
-	font?: keyof typeof FontVariant;
-	children: React.ReactNode;
-	variant?: string;
-};
-
-export default function Typography<T extends React.ElementType>({
-	as,
-	children,
-	weight = "regular",
+export const Typography = ({
 	className,
-	font = "Inter",
+	variant = "body",
+	children,
 	...props
-}: TypographyProps<T> &
-	Omit<React.ComponentProps<T>, keyof TypographyProps<T>>) {
-	const Component = as || "p";
+}: TypographyProps) => {
 	return (
-		<Component
-			className={clsxm(
-				// *=============== Font Type ==================
-				"text-black",
-				[
-					font === "Inter" && [
-						"font-inter",
-						[
-							weight === "regular" && "font-normal",
-							weight === "medium" && "font-medium",
-							weight === "semibold" && "font-semibold",
-							weight === "bold" && "font-bold",
-						],
-					],
-				],
-				[
-					font === "Poppins" && [
-						`${poppins.className}`,
-						[
-							weight === "extralight" && "font-extralight",
-							weight === "light" && "font-light",
-							weight === "medium" && "font-medium",
-							weight === "semibold" && "font-semibold",
-							weight === "bold" && "font-bold",
-							weight === "extrabold" && "font-extrabold",
-						],
-					],
-				],
-				[
-					font === "Montserrat" && [
-						`${montserrat.className}`,
-						[
-							weight === "extralight" && "font-extralight",
-							weight === "light" && "font-light",
-							weight === "medium" && "font-medium",
-							weight === "semibold" && "font-semibold",
-							weight === "bold" && "font-bold",
-							weight === "extrabold" && "font-extrabold",
-						],
-					],
-				],
-				className,
-			)}
-			{...props}
-		>
+		<div className={cn(TypographyVariant({ variant }), className)} {...props}>
 			{children}
-		</Component>
+		</div>
 	);
-}
+};

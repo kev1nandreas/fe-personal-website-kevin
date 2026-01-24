@@ -5,6 +5,7 @@ import {
 	QueryClientProvider,
 	type QueryOptions,
 } from "@tanstack/react-query";
+import { ThemeProvider } from "next-themes";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
 import { Toaster } from "react-hot-toast";
 
@@ -24,12 +25,11 @@ const queryClient = new QueryClient({
 
 export default function Providers({ children }: { children: React.ReactNode }) {
 	return (
-		// biome-ignore lint/complexity/noUselessFragments: Prevent unvalid react child if modules are removed
-		<>
+		<ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
 			<QueryClientProvider client={queryClient}>
 				<Toaster position="top-center" />
 				<NuqsAdapter>{children}</NuqsAdapter>
 			</QueryClientProvider>
-		</>
+		</ThemeProvider>
 	);
 }
