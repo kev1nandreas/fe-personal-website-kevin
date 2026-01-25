@@ -2,37 +2,37 @@
 @config "../../tailwind.config.ts";
 
 :root {
-	--background: #ffffff;
-	--foreground: #171717;
-	--accent: #3b82f6;
-	--accent-secondary: #10b981;
-	--muted: #6b7280;
-	--card: #f3f4f6;
+	--background: 255 255 255;
+	--foreground: 23 23 23;
+	--accent: 59 130 246;
+	--accent-secondary: 16 185 129;
+	--muted: 107 114 128;
+	--card: 243 244 246;
 }
 
 .dark {
-	--background: #0a0a0a;
-	--foreground: #ededed;
-	--accent: #60a5fa;
-	--accent-secondary: #34d399;
-	--muted: #9ca3af;
-	--card: #1f2937;
+	--background: 10 10 10;
+	--foreground: 237 237 237;
+	--accent: 96 165 250;
+	--accent-secondary: 52 211 153;
+	--muted: 156 163 175;
+	--card: 31 41 55;
 }
 
 @theme inline {
-	--color-background: var(--background);
-	--color-foreground: var(--foreground);
-	--color-accent: var(--accent);
-	--color-accent-secondary: var(--accent-secondary);
-	--color-muted: var(--muted);
-	--color-card: var(--card);
+	--color-background: rgb(var(--background));
+	--color-foreground: rgb(var(--foreground));
+	--color-accent: rgb(var(--accent));
+	--color-accent-secondary: rgb(var(--accent-secondary));
+	--color-muted: rgb(var(--muted));
+	--color-card: rgb(var(--card));
 	--font-sans: var(--font-geist-sans);
 	--font-mono: var(--font-geist-mono);
 }
 
 body {
-	background: var(--background);
-	color: var(--foreground);
+	background: rgb(var(--background));
+	color: rgb(var(--foreground));
 	font-family: Arial, Helvetica, sans-serif;
 	transition:
 		background-color 0.3s ease,

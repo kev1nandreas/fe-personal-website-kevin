@@ -3,6 +3,7 @@
 import { Box } from "@mui/material";
 import { Download } from "lucide-react";
 import { Dancing_Script } from "next/font/google";
+import Image from "next/image";
 import Button from "@/components/button/Button";
 import Stack from "@/components/card/CardStack";
 import { Typography } from "@/components/Typography";
@@ -48,6 +49,16 @@ export default function About() {
 						randomRotation={false}
 						sensitivity={200}
 						sendToBackOnClick={true}
+						cards={photos.map((src) => (
+							<Image
+								key={src}
+								src={src}
+								alt={`photo-${src}`}
+								className="w-full h-full object-cover pointer-events-none rounded-lg shadow-lg"
+								width={300}
+								height={300}
+							/>
+						))}
 						autoplay
 						autoplayDelay={3000}
 						pauseOnHover
@@ -61,7 +72,7 @@ export default function About() {
 					gap={3}
 					justifyContent="center"
 				>
-					<Typography className="text-muted w-full max-w-[35rem] text-justify leading-relaxed">
+					<Typography className="text-muted w-full max-w-140 text-justify leading-relaxed">
 						I’m an Informatics student with a strong interest in frontend
 						engineering and data science. I enjoy building production-ready web
 						applications using Next.js, Laravel, Python, and SQL. I also have
@@ -73,7 +84,7 @@ export default function About() {
 					<Button
 						leftIcon={Download}
 						variant="outline"
-						className="w-fit px-[2rem]"
+						className="w-fit px-8"
 						onClick={() => {}}
 						rel="noopener noreferrer"
 					>
@@ -84,3 +95,5 @@ export default function About() {
 		</section>
 	);
 }
+
+const photos = ["/myphoto/BambooKevin.jpg", "/myphoto/BeachKevin.jpg"];
