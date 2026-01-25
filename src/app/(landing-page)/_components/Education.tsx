@@ -16,7 +16,7 @@ export default function Education() {
 	const educationT = t("education");
 
 	return (
-		<section className="w-fit mx-auto px-6 md:px-12 py-16">
+		<section className="w-fit mx-auto px-6 md:px-12 py-16 relative">
 			<Box
 				mb={8}
 				gap={1}
@@ -34,6 +34,9 @@ export default function Education() {
 				<Typography variant={"body"} className="text-muted">
 					{educationT.subtitle}
 				</Typography>
+
+				<div className="absolute top-2/4 -left-10 w-96 h-96 bg-accent/20 rounded-full blur-3xl animate-pulse" />
+				<div className="absolute top-1/4 -right-30 w-96 h-96 bg-accent-secondary/10 rounded-full blur-3xl animate-pulse" />
 			</Box>
 
 			<Timeline
