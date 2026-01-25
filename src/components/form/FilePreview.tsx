@@ -1,10 +1,10 @@
 import { X } from "lucide-react";
 import * as React from "react";
-import Button from "@/components/button/Button";
 import HelperText from "@/components/form/HelperText";
 import LightboxModal from "@/components/LightboxModal";
 import clsxm from "@/lib/clsxm";
 import type { FileWithPreview } from "@/types/dropzone";
+import Button from "../button/Button";
 
 type FilePreviewProps = {
 	file: FileWithPreview;
