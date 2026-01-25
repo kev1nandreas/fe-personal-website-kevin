@@ -41,7 +41,7 @@ export const Experiences = () => {
 	return (
 		<section
 			id="experiences"
-			className="w-fit mx-auto px-6 md:px-12 py-16 relative"
+			className="w-full mx-auto px-6 md:px-12 py-16 relative overflow-hidden"
 		>
 			<Box
 				mb={4}
@@ -61,8 +61,7 @@ export const Experiences = () => {
 					{experiencesT.subtitle}
 				</Typography>
 
-				<div className="absolute top-1/3 -left-20 w-96 h-96 bg-accent/20 rounded-full blur-3xl animate-pulse" />
-				<div className="absolute top-1/2 -right-20 w-96 h-96 bg-accent-secondary/10 rounded-full blur-3xl animate-pulse" />
+				<div className="absolute top-1/4 -left-20 w-96 h-96 bg-accent/20 rounded-full blur-3xl animate-pulse" />
 			</Box>
 
 			<Box sx={{ width: "100%", maxWidth: "800px", mx: "auto" }}>

@@ -15,7 +15,7 @@ export default function Achievements() {
 			className="w-fit mx-auto px-6 md:px-12 py-16 flex flex-col lg:flex-row justify-center items-start gap-20"
 		>
 			{/* Header */}
-			<div className="mb-8 gap-1 flex flex-col justify-center text-left items-start max-w-120">
+			<div className="mb-8 gap-1 flex flex-col justify-center text-center items-center md:text-left md:items-start max-w-120">
 				<Typography
 					variant={"h1"}
 					className="text-accent-secondary hover:tracking-wider transition-all duration-300 ease-in-out"
