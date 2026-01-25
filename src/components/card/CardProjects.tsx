@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { FaArrowRight, FaFireAlt } from "react-icons/fa";
 import { IoIosConstruct } from "react-icons/io";
-import Button from "../button-temp/Button";
+import Button from "../button/Button";
 import { IconDescription } from "../IconDescriprion";
 import { Typography } from "../Typography";
 

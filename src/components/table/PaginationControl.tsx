@@ -3,7 +3,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import type * as React from "react";
 import clsxm from "@/lib/clsxm";
 import { buildPaginationControl } from "@/lib/pagination";
-import Button from "../button-temp/Button";
+import Button from "../button/Button";
 
 type PaginationState = {
 	page: number;

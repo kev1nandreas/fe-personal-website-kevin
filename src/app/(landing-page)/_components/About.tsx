@@ -4,7 +4,7 @@ import { Box } from "@mui/material";
 import { Download } from "lucide-react";
 import { Dancing_Script } from "next/font/google";
 import Image from "next/image";
-import Button from "@/components/button-temp/Button";
+import Button from "@/components/button/Button";
 import Stack from "@/components/card/CardStack";
 import { Typography } from "@/components/Typography";
 import { useTranslation } from "@/hooks/useTranslation";
