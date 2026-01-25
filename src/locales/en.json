@@ -70,5 +70,90 @@
 				"date": "October 2022"
 			}
 		]
+	},
+	"experiences": {
+		"title": "Experiences",
+		"subtitle": "My professional journey and volunteer activities",
+		"tabs": {
+			"work": "Work Experience",
+			"volunteering": "Volunteering"
+		},
+		"work": [
+			{
+				"date": "July 2024 - Present",
+				"title": "Frontend Developer",
+				"company": "Flexoo Software House Informatics ITS - Surabaya",
+				"description": [
+					"Developed responsive and user-friendly interfaces to enhance user experience.",
+					"Collaborated with backend teams to integrate APIs and ensure seamless functionality.",
+					"Utilized Next.js and Tailwind CSS to create efficient, modern web applications."
+				]
+			}
+		],
+		"volunteering": [
+			{
+				"date": "January 2024 - Present",
+				"title": "Head of Organizing Subdivision",
+				"company": "Schematics NPC 2025 - Surabaya",
+				"description": [
+					"Managed Discord server and infrastructure for smooth CP and CTF execution.",
+					"Ensured seamless event operations, troubleshooting issues in real time.",
+					"Led the team, fostering clear and effective communication for efficient coordination."
+				]
+			},
+			{
+				"date": "March 2024 - Present",
+				"title": "Staff of Administration Division",
+				"company": "Bayucaraka UAV Research Team - Surabaya",
+				"description": [
+					"Planned and managed team itineraries, schedules, and administrative tasks to ensure operational efficiency.",
+					"Contribute to the preparation and logistical arrangements for the team's participation in KRTI 2024 in Yogyakarta.",
+					"Developed adaptability and problem-solving skills by handling dynamic administrative and organizational challenges."
+				]
+			},
+			{
+				"date": "September - December 2023",
+				"title": "Staff of Grand Event Division",
+				"company": "Maba Cup 2023 - Surabaya",
+				"description": [
+					"Designed and planned opening and closing ceremonies for a seamless experience.",
+					"Managed logistics to ensure smooth event execution.",
+					"Created a memorable atmosphere for all participants and attendees."
+				]
+			}
+		]
+	},
+	"projects": {
+		"title": "Projects",
+		"subtitle": "A showcase of my work and side projects",
+		"items": [
+			{
+				"title": "Personal Landing Page",
+				"description": "This is a personal landing page I built using Next.js and Tailwind CSS to showcase my profile and portfolio. It features highly reusable components, is responsive on all devices, and includes interactive elements for a better user experience. This is also my first fully self-designed website, created from scratch with inspiration from various references.",
+				"techStack": ["next", "tailwind"],
+				"image": "/projects/landingpagekevin.png",
+				"link": "https://kevin-andreas.com/",
+				"github": "https://github.com/kev1nandreas/fe-personal-website-kevin",
+				"finished": true
+			},
+			{
+				"title": "Link Shortener",
+				"description": "Managing long URLs can be inconvenient, making sharing and accessibility more challenging. This web application offers a simple and efficient solution by shortening links for easier use. As my first full-stack project, developed with Laravel and Next.js, it demonstrates my ability to build a seamless and user-friendly experience. The shortened links are redirected using my main domain, kevin-andreas.com, ensuring a professional and reliable service.",
+				"techStack": ["next", "laravel", "tailwind"],
+				"image": "/projects/linkshortener.png",
+				"link": "https://short.kevin-andreas.com/",
+				"github": "",
+				"finished": false
+			},
+			{
+				"title": "BEM FTK Website",
+				"description": "My team and I developed the official website for BEM FTK to provide a seamless platform for information and engagement. As the Front-End Developer, I focused on ensuring a well-designed, user-friendly interface while maintaining smooth integration with the backend. Built with Next.js, the website delivers high performance, responsiveness, and an optimized user experience.",
+				"techStack": ["next", "tailwind"],
+				"image": "/projects/bemftk.png",
+				"link": "https://bemftk.com/",
+				"github": "",
+				"finished": true
+			}
+		]
 	}
 }

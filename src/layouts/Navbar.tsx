@@ -42,7 +42,7 @@ export default function Navbar() {
 
 	return (
 		<>
-			<nav className="w-full flex justify-center items-center py-4 px-4 fixed top-0 left-0 right-0 z-50">
+			<nav className="w-screen flex justify-center items-center py-4 px-4 fixed top-0 left-0 right-0 z-50">
 				<div
 					className={clsxm(
 						"w-full max-w-4xl flex items-center justify-between",

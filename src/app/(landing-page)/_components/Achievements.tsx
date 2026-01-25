@@ -12,7 +12,7 @@ export default function Achievements() {
 	return (
 		<section
 			id="achievements"
-			className="w-fit mx-auto px-6 md:px-12 py-16 flex justify-center items-start gap-20"
+			className="w-fit mx-auto px-6 md:px-12 py-16 flex flex-col lg:flex-row justify-center items-start gap-20"
 		>
 			{/* Header */}
 			<div className="mb-8 gap-1 flex flex-col justify-center text-left items-start max-w-120">

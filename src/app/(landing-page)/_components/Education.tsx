@@ -16,7 +16,10 @@ export default function Education() {
 	const educationT = t("education");
 
 	return (
-		<section className="w-fit mx-auto px-6 md:px-12 py-16 relative">
+		<section
+			id="education"
+			className="w-screen overflow-hidden mx-auto px-6 md:px-12 py-16 relative"
+		>
 			<Box
 				mb={8}
 				gap={1}

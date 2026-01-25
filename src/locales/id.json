@@ -70,5 +70,90 @@
 				"date": "Oktober 2022"
 			}
 		]
+	},
+	"experiences": {
+		"title": "Pengalaman",
+		"subtitle": "Perjalanan profesional dan aktivitas sukarela saya",
+		"tabs": {
+			"work": "Pengalaman Kerja",
+			"volunteering": "Sukarelawan"
+		},
+		"work": [
+			{
+				"date": "Juli 2024 - Sekarang",
+				"title": "Frontend Developer",
+				"company": "Flexoo Software House Informatika ITS - Surabaya",
+				"description": [
+					"Mengembangkan antarmuka yang responsif dan ramah pengguna untuk meningkatkan pengalaman pengguna.",
+					"Berkolaborasi dengan tim backend untuk mengintegrasikan API dan memastikan fungsionalitas yang lancar.",
+					"Menggunakan Next.js dan Tailwind CSS untuk membuat aplikasi web modern yang efisien."
+				]
+			}
+		],
+		"volunteering": [
+			{
+				"date": "Januari 2024 - Sekarang",
+				"title": "Kepala Subdivisi Penyelenggara",
+				"company": "Schematics NPC 2025 - Surabaya",
+				"description": [
+					"Mengelola server Discord dan infrastruktur untuk pelaksanaan CP dan CTF yang lancar.",
+					"Memastikan operasi acara berjalan lancar, mengatasi masalah secara real time.",
+					"Memimpin tim, membangun komunikasi yang jelas dan efektif untuk koordinasi yang efisien."
+				]
+			},
+			{
+				"date": "Maret 2024 - Sekarang",
+				"title": "Staf Divisi Administrasi",
+				"company": "Tim Riset UAV Bayucaraka - Surabaya",
+				"description": [
+					"Merencanakan dan mengelola rencana perjalanan, jadwal, dan tugas administratif tim untuk memastikan efisiensi operasional.",
+					"Berkontribusi dalam persiapan dan pengaturan logistik untuk partisipasi tim dalam KRTI 2024 di Yogyakarta.",
+					"Mengembangkan kemampuan adaptasi dan pemecahan masalah dengan menangani tantangan administratif dan organisasi yang dinamis."
+				]
+			},
+			{
+				"date": "September - Desember 2023",
+				"title": "Staf Divisi Grand Event",
+				"company": "Maba Cup 2023 - Surabaya",
+				"description": [
+					"Merancang dan merencanakan upacara pembukaan dan penutupan untuk pengalaman yang mulus.",
+					"Mengelola logistik untuk memastikan pelaksanaan acara yang lancar.",
+					"Menciptakan suasana yang berkesan untuk semua peserta dan hadirin."
+				]
+			}
+		]
+	},
+	"projects": {
+		"title": "Proyek",
+		"subtitle": "Galeri karya dan proyek sampingan saya",
+		"items": [
+			{
+				"title": "Halaman Landing Personal",
+				"description": "Ini adalah halaman landing personal yang saya buat menggunakan Next.js dan Tailwind CSS untuk menampilkan profil dan portofolio saya. Halaman ini memiliki komponen yang sangat dapat digunakan kembali, responsif di semua perangkat, dan menyertakan elemen interaktif untuk pengalaman pengguna yang lebih baik. Ini juga merupakan website pertama yang saya desain sendiri sepenuhnya, dibuat dari awal dengan inspirasi dari berbagai referensi.",
+				"techStack": ["next", "tailwind"],
+				"image": "/projects/landingpagekevin.png",
+				"link": "https://kevin-andreas.com/",
+				"github": "https://github.com/kev1nandreas/fe-personal-website-kevin",
+				"finished": true
+			},
+			{
+				"title": "Pemendek Tautan",
+				"description": "Mengelola URL panjang bisa tidak praktis, membuat berbagi dan aksesibilitas lebih menantang. Aplikasi web ini menawarkan solusi sederhana dan efisien dengan memendekkan tautan untuk penggunaan yang lebih mudah. Sebagai proyek full-stack pertama saya, dikembangkan dengan Laravel dan Next.js, ini menunjukkan kemampuan saya untuk membangun pengalaman yang mulus dan ramah pengguna. Tautan yang dipendekkan dialihkan menggunakan domain utama saya, kevin-andreas.com, memastikan layanan yang profesional dan andal.",
+				"techStack": ["next", "laravel", "tailwind"],
+				"image": "/projects/linkshortener.png",
+				"link": "https://short.kevin-andreas.com/",
+				"github": "",
+				"finished": false
+			},
+			{
+				"title": "Website BEM FTK",
+				"description": "Tim saya dan saya mengembangkan website resmi untuk BEM FTK untuk menyediakan platform yang mulus untuk informasi dan keterlibatan. Sebagai Front-End Developer, saya fokus untuk memastikan antarmuka yang dirancang dengan baik dan ramah pengguna sambil mempertahankan integrasi yang lancar dengan backend. Dibangun dengan Next.js, website ini memberikan performa tinggi, responsif, dan pengalaman pengguna yang optimal.",
+				"techStack": ["next", "tailwind"],
+				"image": "/projects/bemftk.png",
+				"link": "https://bemftk.com/",
+				"github": "",
+				"finished": true
+			}
+		]
 	}
 }
