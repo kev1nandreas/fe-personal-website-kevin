@@ -4,9 +4,13 @@ import { MoveDownIcon } from "lucide-react";
 import { IconDescription } from "@/components/IconDescriprion";
 import ModelViewer from "@/components/ModelViewer";
 import { Typography } from "@/components/Typography";
+import { useTranslation } from "@/hooks/useTranslation";
 import { socialLinks } from "@/lib/data";
 
 export default function Hero() {
+	const { t } = useTranslation();
+	const heroT = t("hero");
+
 	return (
 		<section
 			id="hero"
@@ -20,33 +24,31 @@ export default function Hero() {
 				<div className="flex items-center gap-2">
 					<span className="text-2xl">👋</span>
 					<Typography variant="h6" className="text-muted">
-						Hello, I&apos;m
+						{heroT.greeting}
 					</Typography>
 				</div>
 
 				<Typography variant="h1" className="text-center lg:text-left">
-					Kevin Andreas
+					{heroT.name}
 				</Typography>
 
 				<div className="flex flex-col gap-2 text-center lg:text-left">
 					<Typography variant="h4" className="text-muted">
-						Specializing in
+						{heroT.specializingIn}
 					</Typography>
 					<div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 md:gap-4">
 						<span className="highlight-web text-2xl md:text-3xl font-bold">
-							Web Development
+							{heroT.webDevelopment}
 						</span>
 						<span className="text-muted text-2xl">&</span>
 						<span className="highlight-data text-2xl md:text-3xl font-bold">
-							Data Science
+							{heroT.datascience}
 						</span>
 					</div>
 				</div>
 
 				<Typography className="text-muted text-center lg:text-left max-w-md leading-relaxed">
-					Passionate about building modern web applications and extracting
-					meaningful insights from data. I love turning complex problems into
-					elegant solutions.
+					{heroT.description}
 				</Typography>
 
 				<div className="flex items-center gap-6 mt-4">
@@ -81,7 +83,9 @@ export default function Hero() {
 
 			{/* Scroll Indicator */}
 			<div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
-				<Typography className="text-sm text-muted">Scroll Down</Typography>
+				<Typography className="text-sm text-muted">
+					{heroT.scrollDown}
+				</Typography>
 				<MoveDownIcon className="text-muted" />
 			</div>
 		</section>

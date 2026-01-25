@@ -1,0 +1,26 @@
+"use client";
+
+import { create } from "zustand";
+import { persist } from "zustand/middleware";
+
+type Language = "en" | "id";
+
+interface LanguageState {
+	language: Language;
+	setLanguage: (lang: Language) => void;
+	toggleLanguage: () => void;
+}
+
+export const useLanguageStore = create<LanguageState>()(
+	persist(
+		(set, get) => ({
+			language: "en",
+			setLanguage: (lang: Language) => set({ language: lang }),
+			toggleLanguage: () =>
+				set({ language: get().language === "en" ? "id" : "en" }),
+		}),
+		{
+			name: "language-storage",
+		},
+	),
+);

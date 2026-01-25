@@ -1,18 +1,28 @@
 "use client";
 
 import { Backdrop, Box, Slide } from "@mui/material";
-import { Menu, Moon, Sun, X } from "lucide-react";
+import { Globe, Menu, Moon, Sun, X } from "lucide-react";
 import Image from "next/image";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import UnstyledLink from "@/components/links/UnstyledLink";
+import { useTranslation } from "@/hooks/useTranslation";
 import clsxm from "@/lib/clsxm";
-import { navLinks } from "@/lib/data";
 
 export default function Navbar() {
 	const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 	const { setTheme, resolvedTheme } = useTheme();
 	const [mounted, setMounted] = useState(false);
+	const { t, language, toggleLanguage } = useTranslation();
+
+	const navbarT = t("navbar");
+
+	const navLinks = [
+		{ name: navbarT.home, href: "/hero" },
+		{ name: navbarT.about, href: "/about" },
+		{ name: navbarT.projects, href: "/projects" },
+		{ name: navbarT.contact, href: "/contact" },
+	];
 
 	useEffect(() => {
 		setMounted(true);
@@ -74,6 +84,20 @@ export default function Navbar() {
 					</Box>
 
 					<div className="flex items-center gap-2">
+						<button
+							type="button"
+							onClick={toggleLanguage}
+							className={clsxm(
+								"hidden md:flex items-center gap-1.5 px-3 py-2 rounded-xl",
+								"text-sm font-medium text-muted hover:text-foreground hover:bg-accent/10",
+								"transition-all duration-200",
+							)}
+							aria-label="Toggle language"
+						>
+							<Globe className="w-4 h-4" />
+							<span className="uppercase">{language}</span>
+						</button>
+
 						<button
 							type="button"
 							onClick={toggleTheme}
@@ -156,8 +180,24 @@ export default function Navbar() {
 
 					{/* Drawer Footer */}
 					<div className="mt-4 pt-4 border-t border-foreground/10">
+						<div className="flex items-center justify-between px-4 mb-2">
+							<span className="text-sm text-muted">{navbarT.language}</span>
+							<button
+								type="button"
+								onClick={toggleLanguage}
+								className={clsxm(
+									"flex items-center gap-1.5 px-3 py-2 rounded-xl",
+									"text-sm font-medium text-muted hover:text-foreground hover:bg-accent/10",
+									"transition-all duration-200",
+								)}
+								aria-label="Toggle language"
+							>
+								<Globe className="w-4 h-4" />
+								<span className="uppercase">{language}</span>
+							</button>
+						</div>
 						<div className="flex items-center justify-between px-4">
-							<span className="text-sm text-muted">Theme</span>
+							<span className="text-sm text-muted">{navbarT.theme}</span>
 							<button
 								type="button"
 								onClick={toggleTheme}

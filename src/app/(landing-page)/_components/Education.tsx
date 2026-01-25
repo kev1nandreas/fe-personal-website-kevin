@@ -9,15 +9,12 @@ import TimelineOppositeContent from "@mui/lab/TimelineOppositeContent";
 import TimelineSeparator from "@mui/lab/TimelineSeparator";
 import { Box } from "@mui/material";
 import { Typography } from "@/components/Typography";
-
-interface EducationItem {
-	period: string;
-	school: string;
-	major: string;
-	description: string;
-}
+import { useTranslation } from "@/hooks/useTranslation";
 
 export default function Education() {
+	const { t } = useTranslation();
+	const educationT = t("education");
+
 	return (
 		<section className="w-fit mx-auto px-6 md:px-12 py-16">
 			<Box
@@ -32,16 +29,17 @@ export default function Education() {
 					variant="h1"
 					className="text-center text-accent-secondary hover:tracking-wider transition-all duration-300 ease-in-out"
 				>
-					Education
+					{educationT.title}
 				</Typography>
 				<Typography variant={"body"} className="text-muted">
-					My educational background and activities
+					{educationT.subtitle}
 				</Typography>
 			</Box>
 
 			<Timeline
 				position="alternate-reverse"
 				sx={{
+					fontFamily: "inherit",
 					"@media (max-width: 768px)": {
 						"& .MuiTimelineItem-root:before": {
 							flex: 0,
@@ -50,17 +48,20 @@ export default function Education() {
 					},
 				}}
 			>
-				{educationData.map((edu) => (
+				{educationT.items.map((edu) => (
 					<TimelineItem key={edu.school}>
 						<TimelineOppositeContent
 							sx={{
 								m: "auto 0",
 								display: { xs: "none", md: "block" },
+								fontFamily: "inherit",
 							}}
 							align="right"
-							color="text.secondary"
 						>
-							<Typography className="text-accent-secondary font-semibold">
+							<Typography
+								variant="body"
+								className="text-accent-secondary font-semibold"
+							>
 								{edu.period}
 							</Typography>
 						</TimelineOppositeContent>
@@ -87,7 +88,10 @@ export default function Education() {
 							/>
 						</TimelineSeparator>
 
-						<TimelineContent sx={{ py: "12px", px: 2 }} maxWidth={"60rem"}>
+						<TimelineContent
+							sx={{ py: "12px", px: 2, fontFamily: "inherit" }}
+							maxWidth={"60rem"}
+						>
 							<Box className="md:hidden mb-2">
 								<Typography className="text-accent-secondary font-semibold">
 									{edu.period}
@@ -112,20 +116,3 @@ export default function Education() {
 		</section>
 	);
 }
-
-const educationData: EducationItem[] = [
-	{
-		period: "2023 - Present",
-		school: "Institut Teknologi Sepuluh Nopember",
-		major: "Informatics Engineering | GPA: 3.75/4.00",
-		description:
-			"Sepuluh Nopember Institute of Technology stands out as a top institute in Indonesia for science and technology. I'm honored to be part of the informatics undergraduate program. Actively engaging in academics, various committees, and organizations, I continually develop my skills in a vibrant learning environment. Excited to contribute and thrive in this esteemed institution's rich academic and technological community.",
-	},
-	{
-		period: "2020 - 2023",
-		school: "SMA Darma Yudha",
-		major: "Natural Science",
-		description:
-			"Darma Yudha Senior High School is one of the top schools in Riau, known for winning many awards in science and art. I'm in the Mathematics and Natural Science program. I'm part of the Geoscience Club and have won several competitions in geoscience. Being at Darma Yudha has been a great experience, and I'm proud to be part of a school that values excellence.",
-	},
-];

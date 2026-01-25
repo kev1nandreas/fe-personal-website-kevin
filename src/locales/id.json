@@ -1,0 +1,74 @@
+{
+	"navbar": {
+		"home": "Beranda",
+		"about": "Tentang",
+		"projects": "Proyek",
+		"contact": "Kontak",
+		"theme": "Tema",
+		"language": "Bahasa"
+	},
+	"hero": {
+		"greeting": "Halo, Saya",
+		"name": "Kevin Andreas",
+		"specializingIn": "Spesialisasi di",
+		"webDevelopment": "Pengembangan Web",
+		"datascience": "Ilmu Data",
+		"description": "Bersemangat dalam membangun aplikasi web modern dan mengekstrak wawasan bermakna dari data. Saya suka mengubah masalah kompleks menjadi solusi yang elegan.",
+		"scrollDown": "Gulir ke Bawah"
+	},
+	"about": {
+		"title": "Tentang",
+		"titleHighlight": "Saya",
+		"subtitle": "Kenali saya lebih lanjut di bagian ini",
+		"description": "Saya adalah mahasiswa Informatika dengan minat kuat di bidang frontend engineering dan data science. Saya senang membangun aplikasi web siap produksi menggunakan Next.js, Laravel, Python, dan SQL. Saya juga memiliki pengalaman dalam analisis data, machine learning, dan penelitian melalui proyek di Laboratorium Manajemen Informasi Cerdas. Saya adalah penerima beasiswa dengan pengalaman kepemimpinan dan kompetisi di bidang data.",
+		"viewResume": "Lihat Resume"
+	},
+	"education": {
+		"title": "Pendidikan",
+		"subtitle": "Latar belakang pendidikan dan aktivitas saya",
+		"items": [
+			{
+				"period": "2023 - Sekarang",
+				"school": "Institut Teknologi Sepuluh Nopember",
+				"major": "Teknik Informatika | IPK: 3.75/4.00",
+				"description": "Institut Teknologi Sepuluh Nopember menonjol sebagai institut terbaik di Indonesia untuk sains dan teknologi. Saya merasa terhormat menjadi bagian dari program sarjana informatika. Dengan aktif terlibat dalam akademik, berbagai kepanitiaan, dan organisasi, saya terus mengembangkan keterampilan dalam lingkungan belajar yang dinamis. Sangat antusias untuk berkontribusi dan berkembang dalam komunitas akademik dan teknologi yang kaya di institusi terkemuka ini."
+			},
+			{
+				"period": "2020 - 2023",
+				"school": "SMA Darma Yudha",
+				"major": "Ilmu Pengetahuan Alam",
+				"description": "SMA Darma Yudha adalah salah satu sekolah terbaik di Riau, dikenal karena banyak memenangkan penghargaan di bidang sains dan seni. Saya berada di program Matematika dan Ilmu Pengetahuan Alam. Saya adalah bagian dari Klub Geosains dan telah memenangkan beberapa kompetisi di bidang geosains. Berada di Darma Yudha telah menjadi pengalaman yang luar biasa, dan saya bangga menjadi bagian dari sekolah yang menghargai keunggulan."
+			}
+		]
+	},
+	"achievements": {
+		"title": "Prestasi",
+		"subtitle": "Saya mengikuti kompetisi untuk mendorong batas kemampuan, mengasah keterampilan, dan terus berkembang. Berikut adalah beberapa prestasi saya.",
+		"items": [
+			{
+				"name": "Penerima Beasiswa Unggulan 2024",
+				"issuer": "oleh Kementerian Pendidikan, Kebudayaan, Riset, dan Teknologi Indonesia",
+				"description": "Beasiswa Unggulan, dikelola oleh Kementerian Pendidikan, Kebudayaan, Riset, dan Teknologi Indonesia, diberikan kepada individu berprestasi tinggi di seluruh negeri untuk program Sarjana, Magister, dan Doktoral.",
+				"date": "Juli 2024"
+			},
+			{
+				"name": "Peserta KMI (Kewirausahaan Mahasiswa Indonesia) Expo 2024",
+				"issuer": "oleh Kementerian Pendidikan, Kebudayaan, Riset, dan Teknologi Indonesia",
+				"description": "KMI Expo (Kewirausahaan Mahasiswa Indonesia Expo) adalah acara kewirausahaan nasional di mana mahasiswa dari seluruh Indonesia memamerkan ide bisnis inovatif mereka. Tim kami terpilih sebagai finalis, memberikan kesempatan untuk berkompetisi, mempresentasikan proyek, dan mendapatkan wawasan berharga untuk berkembang sebagai pengusaha muda.",
+				"date": "Oktober 2024"
+			},
+			{
+				"name": "Good untuk Data Mining Test International Earth Science Olympiad 2023",
+				"issuer": "oleh International Geoscience Education Organization (IGEO)",
+				"description": "Saya menerima predikat good (setara dengan honorable mention) dalam Data Mining Test, salah satu subtes dalam International Earth Science Olympiad, diikuti oleh 20+ negara dan lebih dari 100+ siswa di seluruh dunia.",
+				"date": "Agustus 2023"
+			},
+			{
+				"name": "Medali Perunggu Ilmu Kebumian, Kompetisi Sains Nasional Indonesia",
+				"issuer": "oleh Kementerian Pendidikan, Kebudayaan, Riset, dan Teknologi Indonesia",
+				"description": "Memenangkan medali perunggu (30 siswa terbaik) dari lebih dari dua puluh ribu siswa di seluruh Indonesia dalam Olimpiade Sains Nasional, kompetisi sains untuk siswa Indonesia yang diadakan oleh Kementerian Pendidikan dan Kebudayaan Indonesia.",
+				"date": "Oktober 2022"
+			}
+		]
+	}
+}

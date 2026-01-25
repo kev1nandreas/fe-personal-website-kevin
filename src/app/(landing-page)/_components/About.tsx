@@ -7,10 +7,14 @@ import Image from "next/image";
 import Button from "@/components/button/Button";
 import Stack from "@/components/card/CardStack";
 import { Typography } from "@/components/Typography";
+import { useTranslation } from "@/hooks/useTranslation";
 
 const dancingScript = Dancing_Script({ subsets: ["latin"], weight: "400" });
 
 export default function About() {
+	const { t } = useTranslation();
+	const aboutT = t("about");
+
 	return (
 		<section className="w-fit mx-auto px-6 md:px-12 py-16">
 			<Box
@@ -25,15 +29,15 @@ export default function About() {
 					variant="h1"
 					className="text-center hover:tracking-wider transition-all duration-300 ease-in-out"
 				>
-					About{" "}
+					{aboutT.title}{" "}
 					<span
 						className={`${dancingScript.className} font-bold italic text-accent-secondary`}
 					>
-						Me
+						{aboutT.titleHighlight}
 					</span>
 				</Typography>
 				<Typography variant={"body"} className="text-muted">
-					Know more about me in this section
+					{aboutT.subtitle}
 				</Typography>
 			</Box>
 
@@ -73,13 +77,7 @@ export default function About() {
 					justifyContent="center"
 				>
 					<Typography className="text-muted w-full max-w-140 text-justify leading-relaxed">
-						I’m an Informatics student with a strong interest in frontend
-						engineering and data science. I enjoy building production-ready web
-						applications using Next.js, Laravel, Python, and SQL. I also have
-						experience in data analysis, machine learning, and research through
-						projects at the Information Intelligent Management Laboratory. I’m a
-						scholarship awardee with leadership and competition experience in
-						data-related fields.
+						{aboutT.description}
 					</Typography>
 					<Button
 						leftIcon={Download}
@@ -88,7 +86,7 @@ export default function About() {
 						onClick={() => {}}
 						rel="noopener noreferrer"
 					>
-						View Resume
+						{aboutT.viewResume}
 					</Button>
 				</Box>
 			</Box>
