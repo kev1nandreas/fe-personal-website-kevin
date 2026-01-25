@@ -46,7 +46,7 @@ export const CardProject = ({
 		<div
 			ref={divRef}
 			className="flex flex-col justify-center items-center md:flex-row gap-15 p-5 rounded-2xl relative overflow-hidden hover:-translate-y-2 transition-all duration-600 ease-in-out"
-			style={{ borderColor: "rgba(255, 255, 255, 0.05)", borderWidth: 1 }}
+			style={{ borderColor: "rgb(var(--foreground) / 0.2)", borderWidth: 1 }}
 		>
 			{index === 0 && (
 				<div className="absolute flex select-none justify-center items-center bg-linear-to-r from-accent-secondary to-accent-secondary via-accent text-gray-700 h-fit w-80 font-semibold text-xl -rotate-45 -left-25 top-10">

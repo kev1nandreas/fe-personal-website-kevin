@@ -11,35 +11,29 @@ export const Projects = () => {
 	const projectsT = t("projects");
 
 	return (
-		<section
-			id="projects"
-			className="w-fit mx-auto px-6 md:px-12 py-16 relative"
-		>
+		<section id="projects" className="w-fit mx-auto px-6 md:px-12 py-16">
 			<Box
 				mb={8}
-				gap={1}
 				display="flex"
 				flexDirection="column"
 				justifyContent="center"
 				alignItems={"center"}
 			>
-				<div className="relative">
+				<Typography
+					variant="h1"
+					className="text-center w-[20rem] h-28 text-accent-secondary hover:tracking-wider transition-all duration-300 ease-in-out relative z-10"
+				>
 					<Image
-						src="/assets/circle/hw-circle3.png"
-						alt="circle-decoration"
-						width={120}
-						height={120}
+						src="/assets/rectangle/hw-rectangle1.png"
+						alt="rectangle-decoration"
+						width={1000}
+						height={1000}
 						draggable={false}
 						priority={true}
-						className="absolute pointer-events-none select-none -top-8 -left-12 opacity-80"
+						className="absolute pointer-events-none select-none w-full h-full -top-6 lg:-top-6"
 					/>
-					<Typography
-						variant="h1"
-						className="text-center text-accent-secondary hover:tracking-wider transition-all duration-300 ease-in-out relative z-10"
-					>
-						{projectsT.title}
-					</Typography>
-				</div>
+					{projectsT.title}
+				</Typography>
 				<Typography variant={"body"} className="text-muted">
 					{projectsT.subtitle}
 				</Typography>
