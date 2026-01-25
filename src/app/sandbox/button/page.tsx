@@ -1,5 +1,5 @@
 import { ArrowRight, Plus } from "lucide-react";
-import Button from "@/components/button/Button";
+import Button from "@/components/button-temp/Button";
 import ButtonLink from "@/components/links/ButtonLink";
 import { Typography } from "@/components/Typography";
 

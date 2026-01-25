@@ -1,7 +1,7 @@
 import { Dialog, DialogPanel } from "@headlessui/react";
 import { TriangleAlert, X } from "lucide-react";
 import clsxm from "@/lib/clsxm";
-import Button from "../button/Button";
+import Button from "../button-temp/Button";
 
 export default function ConfirmationDialog({
 	isOpen,

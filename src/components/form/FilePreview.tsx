@@ -4,7 +4,7 @@ import HelperText from "@/components/form/HelperText";
 import LightboxModal from "@/components/LightboxModal";
 import clsxm from "@/lib/clsxm";
 import type { FileWithPreview } from "@/types/dropzone";
-import Button from "../button/Button";
+import Button from "../button-temp/Button";
 
 type FilePreviewProps = {
 	file: FileWithPreview;
