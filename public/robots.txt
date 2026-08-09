@@ -7,8 +7,7 @@ User-agent: *
 Disallow: /sandbox
 
 # Host
-Host: http://localhost:3000/
+Host: https://kevin-andreas.com
 
 # Sitemaps
-Sitemap: http://localhost:3000/sitemap.xml
-Sitemap: http://localhost:3000//sitemap.xml
+Sitemap: https://kevin-andreas.com/sitemap.xml
