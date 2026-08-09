@@ -16,7 +16,10 @@ export default function About() {
 	const aboutT = t("about");
 
 	return (
-		<section className="w-fit mx-auto px-6 md:px-12 py-16">
+		<section
+			id="about"
+			className="w-fit mx-auto px-6 md:px-12 py-16 scroll-mt-24"
+		>
 			<Box
 				mb={4}
 				gap={1}

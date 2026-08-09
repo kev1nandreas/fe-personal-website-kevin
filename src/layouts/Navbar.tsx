@@ -18,10 +18,10 @@ export default function Navbar() {
 	const navbarT = t("navbar");
 
 	const navLinks = [
-		{ name: navbarT.home, href: "/hero" },
-		{ name: navbarT.about, href: "/about" },
-		{ name: navbarT.projects, href: "/projects" },
-		{ name: navbarT.contact, href: "/contact" },
+		{ name: navbarT.home, href: "/#hero" },
+		{ name: navbarT.about, href: "/#about" },
+		{ name: navbarT.projects, href: "/#projects" },
+		{ name: navbarT.contact, href: "/#contact" },
 	];
 
 	useEffect(() => {

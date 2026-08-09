@@ -4,14 +4,20 @@ import { Box } from "@mui/material";
 import Image from "next/image";
 import { CardProject } from "@/components/card/CardProjects";
 import { Typography } from "@/components/Typography";
+import { useProjectsQuery } from "@/hooks/useProjectsQuery";
 import { useTranslation } from "@/hooks/useTranslation";
+import { pickLang } from "@/lib/pickLang";
 
 export const Projects = () => {
-	const { t } = useTranslation();
+	const { t, language } = useTranslation();
 	const projectsT = t("projects");
+	const { data: projects, isLoading, isError } = useProjectsQuery();
 
 	return (
-		<section id="projects" className="w-fit mx-auto px-6 md:px-12 py-16">
+		<section
+			id="projects"
+			className="w-fit mx-auto px-6 md:px-12 py-16 scroll-mt-24"
+		>
 			<Box
 				mb={8}
 				display="flex"
@@ -39,18 +45,41 @@ export const Projects = () => {
 				</Typography>
 			</Box>
 
+			{isLoading && (
+				<Typography variant={"body"} className="text-muted text-center">
+					Loading projects...
+				</Typography>
+			)}
+
+			{isError && (
+				<Typography variant={"body"} className="text-muted text-center">
+					Couldn't load projects right now.
+				</Typography>
+			)}
+
+			{!isLoading && !isError && projects?.length === 0 && (
+				<Typography variant={"body"} className="text-muted text-center">
+					No projects published yet.
+				</Typography>
+			)}
+
 			<div className="flex flex-col gap-7">
-				{projectsT.items.map((project, index) => (
+				{projects?.map((project, index) => (
 					<CardProject
-						key={project.title}
+						key={project.id}
 						index={index}
-						title={project.title}
-						description={project.description}
-						techStack={project.techStack}
-						link={project.link}
-						github={project.github}
-						image={project.image}
-						finished={project.finished}
+						slug={project.slug}
+						title={pickLang(language, project.title_en, project.title_id)}
+						description={pickLang(
+							language,
+							project.description_en,
+							project.description_id,
+						)}
+						techStack={project.tech_stack ?? []}
+						link={project.url}
+						github={project.github_url}
+						image={project.thumbnail_url || "/image.png"}
+						finished={project.is_finished}
 					/>
 				))}
 			</div>

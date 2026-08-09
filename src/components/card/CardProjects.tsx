@@ -1,14 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { FaArrowRight, FaFireAlt } from "react-icons/fa";
+import { FaArrowRight, FaFireAlt, FaGithub } from "react-icons/fa";
 import { IoIosConstruct } from "react-icons/io";
 import Button from "../button/Button";
-import { IconDescription } from "../IconDescriprion";
 import { Typography } from "../Typography";
 
 interface CardProjectProps {
 	index: number;
+	slug: string;
 	title: string;
 	description: string;
 	techStack: string[];
@@ -20,6 +20,7 @@ interface CardProjectProps {
 
 export const CardProject = ({
 	index,
+	slug,
 	title,
 	description,
 	techStack,
@@ -42,6 +43,21 @@ export const CardProject = ({
 		}
 	});
 
+	// Fixed-size box (not intrinsic image size) so every card's thumbnail
+	// renders at the same footprint regardless of the source image's
+	// original dimensions/aspect ratio.
+	const thumbnail = (
+		<div className="relative w-full md:w-100 aspect-4/3 shrink-0 rounded-2xl overflow-hidden border-2 border-foreground/15">
+			<Image
+				src={image}
+				alt={title}
+				fill
+				draggable={false}
+				className="pointer-events-none select-none object-cover"
+			/>
+		</div>
+	);
+
 	return (
 		<div
 			ref={divRef}
@@ -56,26 +72,23 @@ export const CardProject = ({
 			)}
 
 			{/* Image Left */}
-			<Image
-				onClick={() => window.open(link)}
-				src={image}
-				alt={title}
-				width={400}
-				height={400}
-				draggable={false}
-				className={`pointer-events-none select-none border-2 rounded-2xl w-full object-cover md:w-fit md:h-fit cursor-pointer ${
-					index % 2 === 0 ? "" : "md:hidden"
-				}`}
-			></Image>
+			<Link
+				href={`/projects/${slug}`}
+				className={`block w-full md:w-fit ${index % 2 === 0 ? "" : "md:hidden"}`}
+			>
+				{thumbnail}
+			</Link>
 
 			<div className="max-w-160 flex flex-col gap-4">
 				<div className="flex items-center justify-between">
-					<Typography
-						variant={"h4"}
-						className={`text-2xl transition-all duration-1000 ease-in-out ${hover ? "underline underline-offset-4 decoration-accent-secondary/80 decoration-dashed" : ""}`}
-					>
-						{title}
-					</Typography>
+					<Link href={`/projects/${slug}`}>
+						<Typography
+							variant={"h4"}
+							className={`text-2xl transition-all duration-1000 ease-in-out ${hover ? "underline underline-offset-4 decoration-accent-secondary/80 decoration-dashed" : ""}`}
+						>
+							{title}
+						</Typography>
+					</Link>
 
 					{/* Work In Progress */}
 					{finished === false && (
@@ -88,51 +101,55 @@ export const CardProject = ({
 
 				<Typography
 					variant={"body"}
-					className="opacity-80 text-justify text-muted"
-				>
-					{description}
-				</Typography>
-				<div className="flex gap-2 items-center my-3">
-					<Typography className="text-sm mr-3">Tech Stack: </Typography>
-					{techStack.map((tech) => (
-						<IconDescription key={tech} name={tech} size={"2xl"} />
+					className="opacity-80 text-justify text-muted line-clamp-4 [&_p]:mb-1 [&_ul]:list-disc [&_ul]:pl-5 [&_ol]:list-decimal [&_ol]:pl-5"
+					// biome-ignore lint/security/noDangerouslySetInnerHtml: description is CMS-authored HTML, not user-generated
+					dangerouslySetInnerHTML={{ __html: description }}
+				/>
+				<div className="flex flex-wrap gap-2 my-1">
+					{(techStack ?? []).map((tech) => (
+						<span
+							key={tech}
+							className="text-xs font-medium px-2.5 py-1 rounded-full border border-foreground/15 text-muted"
+						>
+							{tech}
+						</span>
 					))}
 				</div>
-				<div
-					className={`flex items-center ${
-						github ? "justify-between" : "justify-end"
-					}`}
-				>
+				<div className="flex items-center justify-between gap-3">
 					{github && (
-						<Link href={github} target="_blank">
-							<IconDescription name={"github-r"} size={"lg"} />
+						<Link href={github} target="_blank" aria-label="GitHub repository">
+							<FaGithub className="text-2xl text-foreground hover:text-accent transition-colors duration-300" />
 						</Link>
 					)}
-					<Button
-						variant={"outline"}
-						className="flex gap-2"
-						onClick={() => window.open(link)}
-					>
-						Visit Website{" "}
-						<span>
-							<FaArrowRight className="text-xl" />
-						</span>
-					</Button>
+					<div className="flex gap-2 items-center ml-auto">
+						<Link href={`/projects/${slug}`}>
+							<Button variant={"ghost"} className="flex gap-2">
+								View Details
+							</Button>
+						</Link>
+						{link && (
+							<Button
+								variant={"outline"}
+								className="flex gap-2"
+								onClick={() => window.open(link)}
+							>
+								Visit Website{" "}
+								<span>
+									<FaArrowRight className="text-xl" />
+								</span>
+							</Button>
+						)}
+					</div>
 				</div>
 			</div>
 
 			{/* Image Right */}
-			<Image
-				onClick={() => window.open(link)}
-				src={image}
-				alt={title}
-				width={400}
-				height={400}
-				draggable={false}
-				className={`pointer-events-none select-none border-2 rounded-2xl w-full object-cover md:w-fit md:h-fit cursor-pointer ${
-					index % 2 !== 0 ? "hidden md:block" : "hidden md:hidden"
-				}`}
-			/>
+			<Link
+				href={`/projects/${slug}`}
+				className={`hidden w-full md:w-fit ${index % 2 !== 0 ? "md:block" : "md:hidden"}`}
+			>
+				{thumbnail}
+			</Link>
 		</div>
 	);
 };

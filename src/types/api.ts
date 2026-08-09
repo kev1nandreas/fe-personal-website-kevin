@@ -1,3 +1,14 @@
+// Matches be-personal-website-kevin/pkg/pagination.Meta — used by the
+// Projects/Experiences list endpoints (pkg/response.Response{success,message,data,meta}).
+export interface Metadata {
+	page: number;
+	page_size: number;
+	total_items: number;
+	total_pages: number;
+	has_next: boolean;
+	has_prev: boolean;
+}
+
 export type PaginateData<Data> = {
 	data_per_page: Data;
 	meta: {

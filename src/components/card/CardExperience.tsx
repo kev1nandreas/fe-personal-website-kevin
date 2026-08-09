@@ -4,7 +4,8 @@ interface CardExperienceProps {
 	date: string;
 	title: string;
 	company: string;
-	description: string[];
+	/** Rich-text HTML authored in the CMS (react-quill output). */
+	description: string;
 }
 
 export const CardExperience = ({
@@ -26,15 +27,12 @@ export const CardExperience = ({
 				<Typography variant={"body"} className="text-muted">
 					{company}
 				</Typography>
-				<Typography variant={"body"} className="opacity-80 mt-3 ml-4">
-					<ul className="text-justify">
-						{description.map((desc) => (
-							<li key={desc} className="list-disc">
-								{desc}
-							</li>
-						))}
-					</ul>
-				</Typography>
+				<Typography
+					variant={"body"}
+					className="opacity-80 mt-3 ml-4 [&_ul]:list-disc [&_ul]:pl-5 [&_ol]:list-decimal [&_ol]:pl-5 [&_p]:mb-2 text-justify"
+					// biome-ignore lint/security/noDangerouslySetInnerHtml: description is CMS-authored HTML, not user-generated
+					dangerouslySetInnerHTML={{ __html: description }}
+				/>
 			</div>
 		</div>
 	);

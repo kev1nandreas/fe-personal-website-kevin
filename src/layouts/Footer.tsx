@@ -8,7 +8,7 @@ export const Footer = () => {
 	return (
 		<footer
 			id="contact"
-			className="flex md:flex-row flex-col mt-30 justify-center md:items-start items-center gap-10 md:gap-15 py-20 border-t border-accent-secondary/20"
+			className="flex md:flex-row flex-col mt-30 justify-center md:items-start items-center gap-10 md:gap-15 py-20 border-t border-accent-secondary/20 scroll-mt-24"
 		>
 			<div className="w-fit md:mr-10 md:text-left text-center">
 				<Typography variant={"h5"} className="text-accent-secondary">

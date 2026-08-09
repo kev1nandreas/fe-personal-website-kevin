@@ -3,4 +3,11 @@ export const MAIN_ENDPOINT = {
 		Login: "/auth/login",
 		CurrentUser: "/auth/me",
 	},
+	Projects: {
+		FetchProjects: "/v1/projects",
+		FetchProjectBySlug: (slug: string) => `/v1/projects/find/${slug}`,
+	},
+	Experiences: {
+		FetchExperiences: "/v1/experiences",
+	},
 };
