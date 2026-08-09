@@ -33,7 +33,7 @@ function TabPanel(props: TabPanelProps) {
 
 function formatDateRange(
 	dateStart: string,
-	dateEnd: string,
+	dateEnd: string | null | undefined,
 	language: "en" | "id",
 ) {
 	const locale = language === "id" ? "id-ID" : "en-US";

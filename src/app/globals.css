@@ -69,3 +69,72 @@ body {
 .primary-500 {
 	color: #0070f3;
 }
+
+/* Renders CMS-authored Quill HTML (react-quill-new). Tailwind preflight
+   strips default bold/italic/underline/heading styling from raw tags,
+   so restore it here for every dangerouslySetInnerHTML description. */
+.rich-text {
+	max-width: 100%;
+	overflow-wrap: break-word;
+}
+
+.rich-text strong,
+.rich-text b {
+	font-weight: 700;
+}
+
+.rich-text em,
+.rich-text i {
+	font-style: italic;
+}
+
+.rich-text u {
+	text-decoration: underline;
+}
+
+.rich-text s,
+.rich-text strike {
+	text-decoration: line-through;
+}
+
+.rich-text a {
+	color: rgb(var(--accent));
+	text-decoration: underline;
+	text-underline-offset: 2px;
+}
+
+.rich-text h1 {
+	font-size: 1.875rem;
+	font-weight: 700;
+	margin-bottom: 0.5rem;
+}
+
+.rich-text h2 {
+	font-size: 1.5rem;
+	font-weight: 700;
+	margin-bottom: 0.5rem;
+}
+
+.rich-text h3 {
+	font-size: 1.25rem;
+	font-weight: 700;
+	margin-bottom: 0.5rem;
+}
+
+.rich-text p {
+	margin-bottom: 0.5rem;
+}
+
+.rich-text ul {
+	list-style-type: disc;
+	padding-left: 1.25rem;
+}
+
+.rich-text ol {
+	list-style-type: decimal;
+	padding-left: 1.25rem;
+}
+
+.rich-text li {
+	margin-bottom: 0.25rem;
+}

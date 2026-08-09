@@ -5,7 +5,7 @@ export interface Experience {
 	title_id: string;
 	title_en: string;
 	date_start: string;
-	date_end: string;
+	date_end?: string | null;
 	company_id: string;
 	company_en: string;
 	description_id: string;

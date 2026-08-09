@@ -94,7 +94,7 @@ export default function ProjectDetailPage() {
 
 			<Typography
 				variant={"body"}
-				className="text-muted text-justify [&_p]:mb-4 [&_ul]:list-disc [&_ul]:pl-5 [&_ol]:list-decimal [&_ol]:pl-5 mb-8"
+				className="rich-text text-muted text-justify mb-8"
 				// biome-ignore lint/security/noDangerouslySetInnerHtml: description is CMS-authored HTML, not user-generated
 				dangerouslySetInnerHTML={{ __html: description }}
 			/>
@@ -137,7 +137,7 @@ export default function ProjectDetailPage() {
 					</Typography>
 					<Typography
 						variant={"body"}
-						className="text-muted [&_p]:mb-2"
+						className="rich-text text-muted"
 						// biome-ignore lint/security/noDangerouslySetInnerHtml: CMS-authored HTML, not user-generated
 						dangerouslySetInnerHTML={{ __html: improveNext }}
 					/>

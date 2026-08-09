@@ -65,7 +65,7 @@ export const CardProject = ({
 			style={{ borderColor: "rgb(var(--foreground) / 0.2)", borderWidth: 1 }}
 		>
 			{index === 0 && (
-				<div className="absolute flex select-none justify-center items-center bg-linear-to-r from-accent-secondary to-accent-secondary via-accent text-gray-700 h-fit w-80 font-semibold text-xl -rotate-45 -left-25 top-10">
+				<div className="absolute z-100 flex select-none justify-center items-center bg-linear-to-r from-accent-secondary to-accent-secondary via-accent text-gray-700 h-fit w-80 font-semibold text-xl -rotate-45 -left-25 top-10">
 					<FaFireAlt className="text-xl mr-2" />
 					Latest
 				</div>
@@ -79,7 +79,7 @@ export const CardProject = ({
 				{thumbnail}
 			</Link>
 
-			<div className="max-w-160 flex flex-col gap-4">
+			<div className="max-w-160 min-w-0 w-full flex flex-col gap-4">
 				<div className="flex items-center justify-between">
 					<Link href={`/projects/${slug}`}>
 						<Typography
@@ -101,7 +101,7 @@ export const CardProject = ({
 
 				<Typography
 					variant={"body"}
-					className="opacity-80 text-justify text-muted line-clamp-4 [&_p]:mb-1 [&_ul]:list-disc [&_ul]:pl-5 [&_ol]:list-decimal [&_ol]:pl-5"
+					className="rich-text opacity-80 text-justify text-muted line-clamp-4"
 					// biome-ignore lint/security/noDangerouslySetInnerHtml: description is CMS-authored HTML, not user-generated
 					dangerouslySetInnerHTML={{ __html: description }}
 				/>
