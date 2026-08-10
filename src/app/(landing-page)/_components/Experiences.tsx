@@ -1,8 +1,10 @@
 "use client";
 
 import { Box, Tab, Tabs } from "@mui/material";
-import { Briefcase, Heart } from "lucide-react";
+import { ArrowRight, Briefcase, Heart } from "lucide-react";
+import Link from "next/link";
 import { useMemo, useState } from "react";
+import Button from "@/components/button/Button";
 import { CardExperience } from "@/components/card/CardExperience";
 import { Typography } from "@/components/Typography";
 import { useExperiencesQuery } from "@/hooks/useExperiencesQuery";
@@ -49,7 +51,12 @@ function formatDateRange(
 	return `${start} - ${formatter.format(new Date(dateEnd))}`;
 }
 
-export const Experiences = () => {
+interface ExperiencesProps {
+	limit?: number;
+	showViewAll?: boolean;
+}
+
+export const Experiences = ({ limit, showViewAll }: ExperiencesProps) => {
 	const [tabValue, setTabValue] = useState(0);
 	const { t, language } = useTranslation();
 	const experiencesT = t("experiences");
@@ -63,6 +70,11 @@ export const Experiences = () => {
 		() => experiences?.filter((exp) => exp.is_volunteer) ?? [],
 		[experiences],
 	);
+
+	const visibleWork = limit ? work.slice(0, limit) : work;
+	const visibleVolunteering = limit
+		? volunteering.slice(0, limit)
+		: volunteering;
 
 	const handleTabChange = (_event: React.SyntheticEvent, newValue: number) => {
 		setTabValue(newValue);
@@ -154,7 +166,7 @@ export const Experiences = () => {
 
 					<TabPanel value={tabValue} index={0}>
 						<div className="flex flex-col gap-7">
-							{work.map((exp) => (
+							{visibleWork.map((exp) => (
 								<CardExperience
 									key={exp.id}
 									date={formatDateRange(exp.date_start, exp.date_end, language)}
@@ -172,7 +184,7 @@ export const Experiences = () => {
 
 					<TabPanel value={tabValue} index={1}>
 						<div className="flex flex-col gap-7">
-							{volunteering.map((exp) => (
+							{visibleVolunteering.map((exp) => (
 								<CardExperience
 									key={exp.id}
 									date={formatDateRange(exp.date_start, exp.date_end, language)}
@@ -187,6 +199,17 @@ export const Experiences = () => {
 							))}
 						</div>
 					</TabPanel>
+
+					{showViewAll && (
+						<div className="flex justify-center mt-10">
+							<Link href="/experiences">
+								<Button variant={"outline"} className="flex gap-2">
+									{experiencesT.viewAll}
+									<ArrowRight className="w-4 h-4" />
+								</Button>
+							</Link>
+						</div>
+					)}
 				</Box>
 			)}
 		</section>

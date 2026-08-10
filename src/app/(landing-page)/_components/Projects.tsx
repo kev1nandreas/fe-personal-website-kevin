@@ -16,7 +16,7 @@ export const Projects = () => {
 	return (
 		<section
 			id="projects"
-			className="w-fit mx-auto px-6 md:px-12 py-16 scroll-mt-24"
+			className="w-full max-w-5xl mx-auto px-4 sm:px-6 md:px-12 py-16 scroll-mt-24"
 		>
 			<Box
 				mb={8}
@@ -27,7 +27,7 @@ export const Projects = () => {
 			>
 				<Typography
 					variant="h1"
-					className="text-center w-[20rem] h-28 text-accent-secondary hover:tracking-wider transition-all duration-300 ease-in-out relative z-10"
+					className="text-center w-full max-w-[20rem] h-28 text-accent-secondary hover:tracking-wider transition-all duration-300 ease-in-out relative z-10"
 				>
 					<Image
 						src="/assets/rectangle/hw-rectangle1.png"

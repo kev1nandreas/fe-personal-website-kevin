@@ -20,6 +20,8 @@ export default function Navbar() {
 	const navLinks = [
 		{ name: navbarT.home, href: "/#hero" },
 		{ name: navbarT.about, href: "/#about" },
+		{ name: navbarT.experiences, href: "/#experiences" },
+		{ name: navbarT.achievements, href: "/#achievements" },
 		{ name: navbarT.projects, href: "/#projects" },
 		{ name: navbarT.contact, href: "/#contact" },
 	];

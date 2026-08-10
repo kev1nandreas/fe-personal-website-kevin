@@ -86,7 +86,7 @@ export default function About() {
 						leftIcon={Download}
 						variant="outline"
 						className="w-fit px-8"
-						onClick={() => {}}
+						onClick={() => window.open("/CV.pdf", "_blank")}
 						rel="noopener noreferrer"
 					>
 						{aboutT.viewResume}

@@ -2,6 +2,8 @@
 	"navbar": {
 		"home": "Home",
 		"about": "About",
+		"experiences": "Experiences",
+		"achievements": "Achievements",
 		"projects": "Projects",
 		"contact": "Contact",
 		"theme": "Theme",
@@ -74,6 +76,7 @@
 	"experiences": {
 		"title": "Experiences",
 		"subtitle": "My professional journey and volunteer activities",
+		"viewAll": "View All Experiences",
 		"tabs": {
 			"work": "Work Experience",
 			"volunteering": "Volunteering"

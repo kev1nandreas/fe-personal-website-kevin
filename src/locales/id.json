@@ -2,6 +2,8 @@
 	"navbar": {
 		"home": "Beranda",
 		"about": "Tentang",
+		"experiences": "Pengalaman",
+		"achievements": "Pencapaian",
 		"projects": "Proyek",
 		"contact": "Kontak",
 		"theme": "Tema",
@@ -74,6 +76,7 @@
 	"experiences": {
 		"title": "Pengalaman",
 		"subtitle": "Perjalanan profesional dan aktivitas sukarela saya",
+		"viewAll": "Lihat Semua Pengalaman",
 		"tabs": {
 			"work": "Pengalaman Kerja",
 			"volunteering": "Sukarelawan"

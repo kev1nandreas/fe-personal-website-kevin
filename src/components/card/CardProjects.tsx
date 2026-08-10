@@ -61,7 +61,7 @@ export const CardProject = ({
 	return (
 		<div
 			ref={divRef}
-			className="flex flex-col justify-center items-center md:flex-row gap-15 p-5 rounded-2xl relative overflow-hidden hover:-translate-y-2 transition-all duration-600 ease-in-out"
+			className="w-full flex flex-col justify-center items-center md:flex-row gap-6 md:gap-15 p-4 sm:p-5 rounded-2xl relative overflow-hidden hover:-translate-y-2 transition-all duration-600 ease-in-out"
 			style={{ borderColor: "rgb(var(--foreground) / 0.2)", borderWidth: 1 }}
 		>
 			{index === 0 && (
@@ -80,11 +80,11 @@ export const CardProject = ({
 			</Link>
 
 			<div className="max-w-160 min-w-0 w-full flex flex-col gap-4">
-				<div className="flex items-center justify-between">
+				<div className="flex flex-wrap items-center justify-between gap-2">
 					<Link href={`/projects/${slug}`}>
 						<Typography
 							variant={"h4"}
-							className={`text-2xl transition-all duration-1000 ease-in-out ${hover ? "underline underline-offset-4 decoration-accent-secondary/80 decoration-dashed" : ""}`}
+							className={`text-xl sm:text-2xl transition-all duration-1000 ease-in-out ${hover ? "underline underline-offset-4 decoration-accent-secondary/80 decoration-dashed" : ""}`}
 						>
 							{title}
 						</Typography>
@@ -115,13 +115,13 @@ export const CardProject = ({
 						</span>
 					))}
 				</div>
-				<div className="flex items-center justify-between gap-3">
+				<div className="flex flex-wrap items-center justify-between gap-3">
 					{github && (
 						<Link href={github} target="_blank" aria-label="GitHub repository">
 							<FaGithub className="text-2xl text-foreground hover:text-accent transition-colors duration-300" />
 						</Link>
 					)}
-					<div className="flex gap-2 items-center ml-auto">
+					<div className="flex flex-wrap gap-2 items-center ml-auto">
 						<Link href={`/projects/${slug}`}>
 							<Button variant={"ghost"} className="flex gap-2">
 								View Details

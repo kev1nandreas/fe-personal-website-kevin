@@ -47,7 +47,7 @@ export default function RootLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<html lang="en" suppressHydrationWarning>
+		<html lang="en" suppressHydrationWarning className="scroll-smooth">
 			<Head>
 				<meta name="apple-mobile-web-app-title" content={siteConfig.title} />
 			</Head>
