@@ -10,4 +10,7 @@ export const MAIN_ENDPOINT = {
 	Experiences: {
 		FetchExperiences: "/v1/experiences",
 	},
+	Links: {
+		FetchLinkBySlug: (slug: string) => `/v1/links/find/${slug}`,
+	},
 };
