@@ -13,7 +13,7 @@ export default function LandingPage() {
 			<Education />
 			<Achievements />
 			<Experiences limit={3} showViewAll />
-			<Projects />
+			<Projects limit={3} showViewAll />
 		</>
 	);
 }

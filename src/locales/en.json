@@ -1,4 +1,12 @@
 {
+	"common": {
+		"backToHome": "Back to Home",
+		"backToProjects": "Back to Projects",
+		"viewDetails": "View Details",
+		"visitWebsite": "Visit Website",
+		"inProgress": "In Progress",
+		"latest": "Latest"
+	},
 	"navbar": {
 		"home": "Home",
 		"about": "About",
@@ -13,7 +21,7 @@
 		"greeting": "Hello, I'm",
 		"name": "Kevin Andreas",
 		"specializingIn": "Specializing in",
-		"webDevelopment": "Web Development",
+		"webDevelopment": "Software Development",
 		"datascience": "Data Science",
 		"description": "Passionate about building modern web applications and extracting meaningful insights from data. I love turning complex problems into elegant solutions.",
 		"scrollDown": "Scroll Down"
@@ -77,6 +85,8 @@
 		"title": "Experiences",
 		"subtitle": "My professional journey and volunteer activities",
 		"viewAll": "View All Experiences",
+		"loading": "Loading experiences...",
+		"error": "Couldn't load experiences right now.",
 		"tabs": {
 			"work": "Work Experience",
 			"volunteering": "Volunteering"
@@ -129,6 +139,15 @@
 	"projects": {
 		"title": "Projects",
 		"subtitle": "A showcase of my work and side projects",
+		"viewAll": "View All Projects",
+		"loading": "Loading projects...",
+		"error": "Couldn't load projects right now.",
+		"empty": "No projects published yet.",
+		"notFound": "Project not found",
+		"loadingDetail": "Loading project...",
+		"stack": "Stack",
+		"highlights": "Engineering Highlights",
+		"improveNext": "What I'd Improve Next",
 		"items": [
 			{
 				"title": "Personal Landing Page",

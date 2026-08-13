@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { FaArrowRight, FaFireAlt, FaGithub } from "react-icons/fa";
 import { IoIosConstruct } from "react-icons/io";
+import { useTranslation } from "@/hooks/useTranslation";
 import Button from "../button/Button";
 import { Typography } from "../Typography";
 
@@ -31,6 +32,8 @@ export const CardProject = ({
 }: CardProjectProps) => {
 	const divRef = useRef<HTMLDivElement>(null);
 	const [hover, setHover] = useState(false);
+	const { t } = useTranslation();
+	const commonT = t("common");
 
 	useEffect(() => {
 		if (divRef.current) {
@@ -67,7 +70,7 @@ export const CardProject = ({
 			{index === 0 && (
 				<div className="absolute z-100 flex select-none justify-center items-center bg-linear-to-r from-accent-secondary to-accent-secondary via-accent text-gray-700 h-fit w-80 font-semibold text-xl -rotate-45 -left-25 top-10">
 					<FaFireAlt className="text-xl mr-2" />
-					Latest
+					{commonT.latest}
 				</div>
 			)}
 
@@ -94,7 +97,7 @@ export const CardProject = ({
 					{finished === false && (
 						<div className="flex items-center gap-2 text-slate-700 text-xs font-semibold bg-linear-to-r from-gray-500 to-gray-500 via-gray-300 p-1 px-3 max-w-40 justify-center rounded-lg">
 							<IoIosConstruct className="text-lg" />
-							In Progress
+							{commonT.inProgress}
 						</div>
 					)}
 				</div>
@@ -124,7 +127,7 @@ export const CardProject = ({
 					<div className="flex flex-wrap gap-2 items-center ml-auto">
 						<Link href={`/projects/${slug}`}>
 							<Button variant={"ghost"} className="flex gap-2">
-								View Details
+								{commonT.viewDetails}
 							</Button>
 						</Link>
 						{link && (
@@ -133,7 +136,7 @@ export const CardProject = ({
 								className="flex gap-2"
 								onClick={() => window.open(link)}
 							>
-								Visit Website{" "}
+								{commonT.visitWebsite}{" "}
 								<span>
 									<FaArrowRight className="text-xl" />
 								</span>

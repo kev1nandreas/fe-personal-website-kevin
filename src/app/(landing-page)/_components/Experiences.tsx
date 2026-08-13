@@ -108,13 +108,13 @@ export const Experiences = ({ limit, showViewAll }: ExperiencesProps) => {
 
 			{isLoading && (
 				<Typography variant={"body"} className="text-muted text-center">
-					Loading experiences...
+					{experiencesT.loading}
 				</Typography>
 			)}
 
 			{isError && (
 				<Typography variant={"body"} className="text-muted text-center">
-					Couldn't load experiences right now.
+					{experiencesT.error}
 				</Typography>
 			)}
 

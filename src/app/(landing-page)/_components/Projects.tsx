@@ -1,17 +1,27 @@
 "use client";
 
 import { Box } from "@mui/material";
+import { ArrowRight } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
+import Button from "@/components/button/Button";
 import { CardProject } from "@/components/card/CardProjects";
 import { Typography } from "@/components/Typography";
 import { useProjectsQuery } from "@/hooks/useProjectsQuery";
 import { useTranslation } from "@/hooks/useTranslation";
 import { pickLang } from "@/lib/pickLang";
 
-export const Projects = () => {
+interface ProjectsProps {
+	limit?: number;
+	showViewAll?: boolean;
+}
+
+export const Projects = ({ limit, showViewAll }: ProjectsProps) => {
 	const { t, language } = useTranslation();
 	const projectsT = t("projects");
 	const { data: projects, isLoading, isError } = useProjectsQuery();
+
+	const visibleProjects = limit ? projects?.slice(0, limit) : projects;
 
 	return (
 		<section
@@ -47,24 +57,24 @@ export const Projects = () => {
 
 			{isLoading && (
 				<Typography variant={"body"} className="text-muted text-center">
-					Loading projects...
+					{projectsT.loading}
 				</Typography>
 			)}
 
 			{isError && (
 				<Typography variant={"body"} className="text-muted text-center">
-					Couldn't load projects right now.
+					{projectsT.error}
 				</Typography>
 			)}
 
 			{!isLoading && !isError && projects?.length === 0 && (
 				<Typography variant={"body"} className="text-muted text-center">
-					No projects published yet.
+					{projectsT.empty}
 				</Typography>
 			)}
 
 			<div className="flex flex-col gap-7">
-				{projects?.map((project, index) => (
+				{visibleProjects?.map((project, index) => (
 					<CardProject
 						key={project.id}
 						index={index}
@@ -83,6 +93,17 @@ export const Projects = () => {
 					/>
 				))}
 			</div>
+
+			{showViewAll && (projects?.length ?? 0) > (limit ?? 0) && (
+				<div className="flex justify-center mt-10">
+					<Link href="/projects">
+						<Button variant={"outline"} className="flex gap-2">
+							{projectsT.viewAll}
+							<ArrowRight className="w-4 h-4" />
+						</Button>
+					</Link>
+				</div>
+			)}
 		</section>
 	);
 };

@@ -1,4 +1,12 @@
 {
+	"common": {
+		"backToHome": "Kembali ke Beranda",
+		"backToProjects": "Kembali ke Proyek",
+		"viewDetails": "Lihat Detail",
+		"visitWebsite": "Kunjungi Website",
+		"inProgress": "Sedang Berlangsung",
+		"latest": "Terbaru"
+	},
 	"navbar": {
 		"home": "Beranda",
 		"about": "Tentang",
@@ -77,6 +85,8 @@
 		"title": "Pengalaman",
 		"subtitle": "Perjalanan profesional dan aktivitas sukarela saya",
 		"viewAll": "Lihat Semua Pengalaman",
+		"loading": "Memuat pengalaman...",
+		"error": "Pengalaman tidak dapat dimuat saat ini.",
 		"tabs": {
 			"work": "Pengalaman Kerja",
 			"volunteering": "Sukarelawan"
@@ -129,6 +139,15 @@
 	"projects": {
 		"title": "Proyek",
 		"subtitle": "Galeri karya dan proyek sampingan saya",
+		"viewAll": "Lihat Semua Proyek",
+		"loading": "Memuat proyek...",
+		"error": "Proyek tidak dapat dimuat saat ini.",
+		"empty": "Belum ada proyek yang dipublikasikan.",
+		"notFound": "Proyek tidak ditemukan",
+		"loadingDetail": "Memuat proyek...",
+		"stack": "Teknologi",
+		"highlights": "Sorotan Teknis",
+		"improveNext": "Yang Ingin Saya Tingkatkan Selanjutnya",
 		"items": [
 			{
 				"title": "Halaman Landing Personal",
