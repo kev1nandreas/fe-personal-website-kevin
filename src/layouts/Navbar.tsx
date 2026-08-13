@@ -60,6 +60,7 @@ export default function Navbar() {
 								src="/image.png"
 								alt="Kevin Andreas"
 								fill
+								quality={100}
 								className="object-cover"
 							/>
 						</div>

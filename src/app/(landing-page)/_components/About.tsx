@@ -64,6 +64,7 @@ export default function About() {
 								className="w-full h-full object-cover pointer-events-none rounded-lg shadow-lg"
 								width={300}
 								height={300}
+								quality={100}
 							/>
 						))}
 						autoplay

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { FaArrowRight, FaFireAlt, FaGithub } from "react-icons/fa";
+import { FaArrowRight, FaGithub } from "react-icons/fa";
 import { IoIosConstruct } from "react-icons/io";
 import { useTranslation } from "@/hooks/useTranslation";
 import Button from "../button/Button";
@@ -46,17 +46,18 @@ export const CardProject = ({
 		}
 	});
 
-	// Fixed-size box (not intrinsic image size) so every card's thumbnail
-	// renders at the same footprint regardless of the source image's
-	// original dimensions/aspect ratio.
+	// Container sizes to the image's own aspect ratio (capped at w-100) so
+	// nothing gets cropped or letterboxed.
 	const thumbnail = (
-		<div className="relative w-full md:w-100 aspect-4/3 shrink-0 rounded-2xl overflow-hidden border-2 border-foreground/15">
+		<div className="w-full md:w-100 shrink-0 rounded-2xl overflow-hidden border-2 border-foreground/15">
 			<Image
 				src={image}
 				alt={title}
-				fill
+				width={1600}
+				height={1200}
+				quality={100}
 				draggable={false}
-				className="pointer-events-none select-none object-cover"
+				className="pointer-events-none select-none w-full h-auto"
 			/>
 		</div>
 	);
@@ -67,13 +68,6 @@ export const CardProject = ({
 			className="w-full flex flex-col justify-center items-center md:flex-row gap-6 md:gap-15 p-4 sm:p-5 rounded-2xl relative overflow-hidden hover:-translate-y-2 transition-all duration-600 ease-in-out"
 			style={{ borderColor: "rgb(var(--foreground) / 0.2)", borderWidth: 1 }}
 		>
-			{index === 0 && (
-				<div className="absolute z-100 flex select-none justify-center items-center bg-linear-to-r from-accent-secondary to-accent-secondary via-accent text-gray-700 h-fit w-80 font-semibold text-xl -rotate-45 -left-25 top-10">
-					<FaFireAlt className="text-xl mr-2" />
-					{commonT.latest}
-				</div>
-			)}
-
 			{/* Image Left */}
 			<Link
 				href={`/projects/${slug}`}

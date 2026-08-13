@@ -38,12 +38,14 @@ export default function Carousel({ images, alt }: CarouselProps) {
 			<div className="overflow-hidden" ref={emblaRef}>
 				<div className="flex">
 					{images.map((src, index) => (
-						<div key={src} className="relative flex-[0_0_100%] aspect-video">
+						<div key={src} className="flex-[0_0_100%]">
 							<Image
 								src={src}
 								alt={`${alt} ${index + 1}`}
-								fill
-								className="object-cover"
+								width={1200}
+								height={800}
+								quality={90}
+								className="w-full h-auto"
 								priority={index === 0}
 							/>
 						</div>

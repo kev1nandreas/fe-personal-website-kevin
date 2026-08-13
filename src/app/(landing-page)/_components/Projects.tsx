@@ -44,6 +44,7 @@ export const Projects = ({ limit, showViewAll }: ProjectsProps) => {
 						alt="rectangle-decoration"
 						width={1000}
 						height={1000}
+						quality={100}
 						draggable={false}
 						priority={true}
 						className="absolute pointer-events-none select-none w-full h-full -top-6 lg:-top-6"

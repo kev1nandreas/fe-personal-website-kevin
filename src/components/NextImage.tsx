@@ -33,6 +33,7 @@ export default function NextImage({
 	className,
 	imgClassName,
 	blurClassName,
+	quality = 100,
 	...rest
 }: NextImageProps) {
 	const [status, setStatus] = React.useState(
@@ -54,6 +55,7 @@ export default function NextImage({
 				src={serverStaticImg ? src : `/images${src}`}
 				width={width}
 				height={height}
+				quality={quality}
 				alt={alt}
 				onLoad={() => setStatus("complete")}
 				{...rest}

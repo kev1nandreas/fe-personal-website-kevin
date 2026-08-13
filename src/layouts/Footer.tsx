@@ -15,7 +15,7 @@ export const Footer = () => {
 					Kevin Andreas
 				</Typography>
 				<Typography variant={"body"} className="text-muted text-xs">
-					© 2025 Kevin Andreas. All rights reserved.
+					© {new Date().getFullYear()} Kevin Andreas. All rights reserved.
 				</Typography>
 			</div>
 
